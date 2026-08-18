@@ -1,35 +1,34 @@
 # Fase 1 — Tarefas gerais
 
-**Status:** decomposição gerada; primeira leva de validação pendente e demais tasks bloqueadas por pré-condições das SPECs.  
-**Fonte:** `01-SPECs/` e `matriz-de-rastreabilidade.md`  
-**Regra:** executar uma task por vez; não resolver BLOQUEIO inventando fonte, acesso, arquitetura ou aceite.
+**Objetivo:** organizar a entrada de leads, o atendimento inicial, a consulta de imóveis e o pedido de visita.
+
+**Regra de execução:** usar somente ambiente de teste; executar uma task por vez; se uma informação,
+acesso ou permissão não estiver definido, parar e registrar a pendência.
 
 ## Tasks
 
-| ID | Leva | Task | Dono | SPEC | Critério binário | Recorte da prova | Evidência esperada | Pré-condições | Ponto de parada | Status |
-|---|---:|---|---|---|---|---|---|---|---|---|
-| F1-T01 | 1 | Fechar contrato de captura, origem, webhook, CRM e dedupe | Matheus Silva | SPEC-1-001 | fonte, campos, permissão e `capture_event_id` aprovados ou bloqueio registrado | Contexto; Dados e integrações; Instruções 1–5 | decisão/registro de setup e fixture `cap-001` | call de setup | parar sem implementar se fonte/chave não forem aprovadas | PENDENTE |
-| F1-T02 | 1 | Fechar superfície do painel, modelo Lead e matriz de acesso | Matheus Silva | SPEC-1-002 | plataforma, armazenamento, campos e papéis SDR/gestor aprovados | Contexto; Dados; Checklist | mapa de campos, papéis e ambiente | call de setup | parar se houver PII/campo/retensão sem dono | PENDENTE |
-| F1-T03 | 1 | Fechar fonte do catálogo, campos, vigência e mídia | Matheus Silva | SPEC-1-003 | fonte única, status, validade, campos e mídia aprovados | Contexto; Dados; Regras RN-1–RN-5 | contrato de catálogo e imóvel de teste | call de setup | parar se Kenlo/Quelo/site ou vigência divergirem | PENDENTE |
-| F1-T04 | 1 | Fechar modelo do pedido de visita e regra de não reserva | Janeide Xavier | SPEC-1-004 | estados, janela, timezone e dono do próximo passo aprovados | Contexto; Dados; Regras RN-1–RN-5 | decisão operacional e exemplo sem booking | call de setup | parar se a Fase 1 for solicitada a reservar horário | PENDENTE |
-| F1-T05 | 2 | Configurar link e captura idempotente de lead | Matheus Silva | SPEC-1-001 | evento válido cria/atualiza um lead com origem e código | Resultado; Fluxo 1–5; CA-1-01/02 | ID do lead, log e captura | F1-T01; acesso aprovado | parar em evento sem ID, CRM ou permissão | BLOQUEADA |
-| F1-T06 | 3 | Configurar fila e cartão mínimo de lead | Matheus Silva | SPEC-1-002 | lead válido aparece uma vez com origem, estado e contexto | Resultado; Fluxo 1–6; CA-1-05/06 | captura do cartão e auditoria | F1-T02 e F1-T05 | parar se campo ou papel não estiver autorizado | BLOQUEADA |
-| F1-T07 | 4 | Configurar consulta por código e preview de ficha | Matheus Silva | SPEC-1-003 | código ativo retorna preview com fonte/vigência sem preencher ausências | Resultado; Fluxo 1–3; CA-1-09/11 | preview, `source_ref` e bloqueio | F1-T03 e F1-T06 | parar em fonte vencida, campo ausente ou mídia insegura | BLOQUEADA |
-| F1-T08 | 5 | Configurar registro de pedido pendente sem agenda | SDR | SPEC-1-004 | pedido vinculado recebe `Pendente de agenda` e próximo passo | Resultado; Fluxo 1–5; CA-1-13/14 | ID do pedido e cartão | F1-T04 e F1-T06/F1-T07 | parar se surgir slot, corretor, chave ou reserva | BLOQUEADA |
-| F1-T09 | 6 | Exercitar bordas da captura e fila de pendência | Matheus Silva | SPEC-1-001 | inválido, repetido, opt-out e indisponível geram resultado correto | Cenários; RN-1–RN-5; caminhos de erro | relatório de quatro cenários | F1-T05 | parar em sucesso falso, duplicidade ou PII em log | BLOQUEADA |
-| F1-T10 | 6 | Exercitar permissões, auditoria e dados incompletos do painel | Matheus Silva | SPEC-1-002 | acesso negado, lead incompleto e painel indisponível são recuperáveis | Cenários; RN-3–RN-5 | log de acesso, pendência e sem vazamento | F1-T06 | parar em alteração indevida ou cartão falso | BLOQUEADA |
-| F1-T11 | 6 | Exercitar bloqueios de catálogo, mídia e envio duplicado | Matheus Silva | SPEC-1-003 | inativo, incompleto, divergente, URL insegura e retry bloqueiam corretamente | Cenários; RN-1–RN-5 | relatório e logs de bloqueio | F1-T07 | parar se dado não confirmado for enviado | BLOQUEADA |
-| F1-T12 | 6 | Exercitar janela incompleta, duplicidade e tentativa de booking | SDR | SPEC-1-004 | pedido incompleto esclarece; repetição não duplica; booking é bloqueado | Cenários; RN-1–RN-5 | pedido, log e bloqueio de reserva | F1-T08 | parar se pedido for tratado como agendado | BLOQUEADA |
-| F1-T13 | 7 | Demonstrar captura ponta a ponta e handoff ao SDR | SDR | SPEC-1-001 | CA-1-01 a CA-1-04 passam no fixture aprovado | TDD RED/GREEN/REGRESSÃO; Handoff | vídeo/capturas, logs e aceite SDR/Matheus | F1-T09 | parar e devolver à SPEC se qualquer CA falhar | BLOQUEADA |
-| F1-T14 | 7 | Demonstrar fila, próximo passo e auditoria do lead | SDR | SPEC-1-002 | CA-1-05 a CA-1-08 passam sem vazamento | TDD; Handoff | captura, log e aceite SDR | F1-T10 | parar e devolver à SPEC se qualquer CA falhar | BLOQUEADA |
-| F1-T15 | 7 | Demonstrar ficha vigente e envio humano rastreável | SDR | SPEC-1-003 | CA-1-09 a CA-1-12 passam sem dado inventado/duplicidade | TDD; Handoff | preview, `message_ref`, vínculo e aceite | F1-T11 | parar e devolver à SPEC se qualquer CA falhar | BLOQUEADA |
-| F1-T16 | 7 | Demonstrar pedido pendente e handoff para Fase 3 | SDR | SPEC-1-004 | CA-1-13 a CA-1-16 passam sem reserva | TDD; Handoff | pedido, estado, bloqueio e aceite | F1-T12 | parar e devolver à SPEC se qualquer CA falhar | BLOQUEADA |
+| ID | Leva | Task | Responsável | Fazer | Concluída quando | Evidência | Depende de | Pare se | Status |
+|---|---:|---|---|---|---|---|---|---|---|
+| F1-T01 | 1 | Definir como um novo contato entra | Matheus Silva | Definir canal, origem, sistema, informações mínimas, permissões e regra para não repetir o contato. | Fontes, campos, acessos e responsáveis aprovados. | Decisão registrada e exemplo de lead de teste. | Call de setup | WhatsApp, CRM, acesso ou regra de repetição não definidos. | PENDENTE |
+| F1-T02 | 1 | Definir a tela de atendimento do lead | Matheus Silva | Definir onde o SDR verá os leads, quais dados aparecerão e o que cada papel poderá fazer. | Tela, campos e permissões aprovados. | Desenho da tela e regras de acesso. | Call de setup | Campo pessoal ou acesso sem responsável. | PENDENTE |
+| F1-T03 | 1 | Definir de onde vêm os dados dos imóveis | Matheus Silva | Escolher a fonte oficial, dados obrigatórios, situação do imóvel, preço, taxas, fotos, validade e responsável pela atualização. | Uma fonte e um imóvel de teste definidos. | Decisão da fonte e ficha de exemplo. | Call de setup | As fontes apresentarem informações diferentes. | PENDENTE |
+| F1-T04 | 1 | Definir como registrar pedido de visita sem marcar horário | Janeide Xavier | Definir informações mínimas, preferência de data, horário, fuso, responsável e próximo passo. | O pedido puder ficar como `Pendente de agenda`, sem reserva. | Exemplo de pedido preenchido. | Call de setup | Alguém solicitar reserva, corretor ou horário nesta fase. | PENDENTE |
+| F1-T05 | 2 | Testar a entrada de um lead pelo link | Matheus Silva | Usar um link aprovado e um contato fictício para criar um lead com origem e imóvel de interesse. | Um lead aparecer uma única vez com as informações corretas. | ID do lead e captura de tela. | F1-T01 | Não houver ambiente de teste, acesso ou identificação da entrada. | BLOQUEADA |
+| F1-T06 | 3 | Colocar o lead na fila de atendimento | Matheus Silva | Fazer o lead aparecer na fila com origem, situação, imóvel e próximo passo. | O SDR encontrar o lead e registrar o próximo passo. | Captura do cartão e registro da alteração. | F1-T02 e F1-T05 | O cartão estiver duplicado, incompleto ou mostrar dado não autorizado. | BLOQUEADA |
+| F1-T07 | 4 | Consultar um imóvel e mostrar sua ficha | Matheus Silva | Consultar um código de teste e abrir a ficha para conferência do SDR. | A ficha mostrar somente informações confirmadas, fonte e validade. | Captura da ficha e identificação da fonte. | F1-T03 e F1-T06 | O imóvel estiver vencido, incompleto ou com foto/link não confiável. | BLOQUEADA |
+| F1-T08 | 5 | Registrar interesse em visita sem reservar horário | SDR | Registrar o pedido ligado ao lead e ao imóvel, com preferência de data e próximo passo. | O pedido aparecer como `Pendente de agenda`. | ID do pedido e captura do cartão. | F1-T04, F1-T06 e F1-T07 | O sistema tentar criar horário, corretor, chave ou reserva. | BLOQUEADA |
+| F1-T09 | 6 | Testar problemas na entrada de leads | Matheus Silva | Testar código inválido, entrada repetida, pedido para não receber contato e sistema indisponível. | Cada situação gerar o bloqueio ou a pendência correta, sem duplicar lead. | Relatório dos quatro testes. | F1-T05 | Houver lead duplicado, envio indevido ou informação pessoal exposta. | BLOQUEADA |
+| F1-T10 | 6 | Testar acessos e dados incompletos no atendimento | Matheus Silva | Testar usuário sem permissão, lead incompleto e painel indisponível. | O acesso indevido for bloqueado e a pendência puder ser recuperada. | Registros de acesso, pendência e recuperação. | F1-T06 | Alguém conseguir alterar ou ver informação sem autorização. | BLOQUEADA |
+| F1-T11 | 6 | Testar imóveis que não podem ser enviados | Matheus Silva | Testar imóvel inativo, dados faltantes, informações diferentes, foto/link inseguro e reenvio. | O envio incorreto for bloqueado com o motivo explicado. | Relatório dos testes e registros dos bloqueios. | F1-T07 | Dado não confirmado for enviado ao cliente. | BLOQUEADA |
+| F1-T12 | 6 | Testar pedidos de visita incompletos ou repetidos | SDR | Testar pedido sem horário definido, pedido repetido e tentativa de marcar horário. | O pedido incompleto pedir esclarecimento, a repetição não criar outro registro e a reserva ser bloqueada. | Pedido, registro da repetição e bloqueio da reserva. | F1-T08 | Qualquer pedido for tratado como visita marcada. | BLOQUEADA |
+| F1-T13 | 7 | Demonstrar a entrada completa de um lead | SDR | Demonstrar o caminho do link até o lead pronto para atendimento. | Os quatro critérios da entrada forem aprovados. | Vídeo ou capturas, registros e aceite do SDR/Matheus. | F1-T09 | Qualquer cenário de entrada falhar. | BLOQUEADA |
+| F1-T14 | 7 | Demonstrar fila, próximo passo e histórico do lead | SDR | Abrir a fila, localizar o lead, registrar o próximo passo e consultar o histórico. | O atendimento continuar sem perder origem ou histórico. | Captura da fila, registro do próximo passo e histórico. | F1-T10 | Houver vazamento de dados ou alteração indevida. | BLOQUEADA |
+| F1-T15 | 7 | Demonstrar ficha correta e envio pelo SDR | SDR | Consultar o imóvel, revisar a ficha e confirmar o envio manual. | O envio ficar ligado ao lead, imóvel, usuário e horário, sem repetição. | Ficha, confirmação de envio e registro do vínculo. | F1-T11 | Houver dado inventado, vencido ou envio repetido. | BLOQUEADA |
+| F1-T16 | 7 | Demonstrar pedido de visita pendente | SDR | Registrar o pedido, mostrar o próximo passo e demonstrar que nenhum horário foi reservado. | O pedido estiver pronto para ser tratado na Fase 3. | Pedido, situação, bloqueio de reserva e aceite. | F1-T12 | O sistema criar reserva, horário ou corretor automaticamente. | BLOQUEADA |
 
-## Dependências de execução
+## Ordem de execução
 
-- A leva 1 é independente entre as quatro SPECs e deve ser resolvida com os responsáveis indicados.
-- As levas 2–5 formam o caminho principal em ordem topológica; cada task só é liberada depois de
-  todas as pré-condições listadas estarem concluídas.
-- As quatro tasks da leva 6 são independentes entre si após o caminho principal correspondente;
-  as quatro da leva 7 também são independentes entre si após suas bordas passarem.
-- Tasks bloqueadas não autorizam implementação parcial; o ponto de parada é parte do contrato.
+- F1-T01 a F1-T04 são as definições iniciais e são independentes entre si.
+- F1-T05 a F1-T08 formam o caminho principal e devem seguir as dependências indicadas.
+- F1-T09 a F1-T12 testam problemas depois que o caminho principal correspondente estiver pronto.
+- F1-T13 a F1-T16 são as demonstrações finais da Fase 1.
