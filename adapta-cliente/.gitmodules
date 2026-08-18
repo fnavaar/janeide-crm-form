@@ -1,0 +1,3 @@
+[submodule "07_sistemas/janeide-crm-form"]
+	path = 07_sistemas/janeide-crm-form
+	url = https://github.com/fnavaar/janeide-crm-form.git
