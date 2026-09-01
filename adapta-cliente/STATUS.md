@@ -1,6 +1,6 @@
 # STATUS — Projeto Imobiliária Janeide Xavier LTDA
 
-> **Atualizado em:** 2026-08-17 · **Por:** Adapta Labs
+> **Atualizado em:** 2026-09-01 · **Por:** Janeidinha
 > O painel do projeto: fase atual, progresso e o que precisa de atenção.
 
 ## Onde estamos
@@ -11,17 +11,23 @@
 
 ## Progresso da fase
 
-- **Tasks:** 0/16 (0%)
-- **Próxima task do champion:** F1-T01 — fechar contrato de captura, origem, webhook, CRM e dedupe; aguarda call de setup.
+- **Tasks:** 5/16 (31%) — F1-T01 a F1-T05 concluídas (leva 1 completa + leva 2 iniciada). F1-T05: captura idempotente no projeto Skip de teste (webhook com validação X-Hub-Signature-256).
+- **Próxima task:** F1-T06 — configurar fila e cartão mínimo de lead (painel).
+
+## Pendências de produção
+
+| Pendência | Responsável | Quando resolver |
+|---|---|---|
+| Trocar `META_APP_SECRET` (teste fictício) pelo **App Secret real da Meta** no Skip Cloud | Matheus Silva | **Antes de publicar** o projeto em produção |
 
 ## Travas ativas
 
 | Trava | Desde | Quem resolve | Ação em curso |
 |---|---|---|---|
 | Fonte e permissão de WhatsApp/CRM/webhook/dedupe | 2026-08-17 | Janeide/Matheus | validar fonte, campos e `capture_event_id` |
-| Plataforma, armazenamento e papéis do painel | 2026-08-17 | Matheus | fechar matriz de acesso e ambiente |
-| Fonte do catálogo, vigência e mídia | 2026-08-17 | Matheus | escolher fonte única e imóvel de teste |
-| Modelo de pedido, janela e timezone | 2026-08-17 | Janeide/SDR | aprovar pedido sem reserva |
+| Plataforma, armazenamento e papéis do painel | 2026-08-17 | Matheus/Janeide | contrato-painel.md: 6/6 itens confirmados (hospedagem Skip Cloud, retenção, modelo Lead, chave única, matriz de acesso, ambiente de teste dedicado) |
+| Fonte do catálogo, vigência e mídia | 2026-08-17 | Matheus | contrato-catalogo.md criado (6 itens); confirmar Kenlo como fonte única e fechar vigência/mídia |
+| Modelo de pedido, janela e timezone | 2026-08-17 | Janeide/SDR | contrato-pedido-visita.md criado; janela (agenda geral/texto livre) e timezone (America/Bahia) confirmados; fechar itens 1/2/5/6 |
 | Ambiente de teste e evidências | 2026-08-17 | Matheus/Adapta | preparar fixtures e logs sem PII |
 
 ## Entregas concluídas
@@ -32,4 +38,12 @@
 
 ## Próxima reunião
 
-A agendar — validação das fontes, permissões, ambiente de teste e primeira task da Fase 1.
+A agendar — call de setup com Matheus Silva e Janeide Xavier para fechar os itens dos contratos de setup já criados:
+
+**Contrato de captura (F1-T01)** — 7 itens: fonte WhatsApp, CRM, mecanismo, campos, permissões, idempotência (`capture_event_id`) e ambiente de teste.
+
+**Contrato de painel (F1-T02)** — 6 itens: superfície/plataforma, armazenamento/retenção, modelo Lead, chave única, matriz de acesso por papel e ambiente de teste.
+
+**Contrato de catálogo (F1-T03)** — 6 itens: fonte de verdade (Kenlo Mob), acesso de leitura, campos mínimos, vigência/validade, mídia/envio por WhatsApp e responsável pela atualização do catálogo.
+
+**Contrato de pedido de visita (F1-T04)** — 6 itens: modelo de pedido e estados, campos do pedido, janela estruturada vs. texto livre, timezone, fonte futura de agenda e dono do próximo passo. Janela e timezone (America/Bahia) já confirmados por Janeide; itens 1/2/5/6 aguardam call de setup.
