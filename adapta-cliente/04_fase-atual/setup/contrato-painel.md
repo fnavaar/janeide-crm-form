@@ -97,6 +97,14 @@
 
 O fixture `lead-001` será validado quando o ambiente for confirmado. Não contém PII real.
 
+## Regra de credenciais (2026-09-01) — aplica a todas as fases
+
+Nenhuma credencial (senha, token, secret, chave — **inclusive de teste/fictícia**) deve ser
+gravada em texto puro no código ou em documentos versionados. No backend Skip usar
+`$secrets.get(...)`; no frontend, variável de ambiente. O valor de teste fica no painel de
+segredos do ambiente (ex.: `SDR_TEST_CREDENTIALS`), **nunca no repositório**. Decisão registrada
+na constituição (seção "Regra de credenciais"); crítica em produção.
+
 ## Próximo passo
 
 Realizar a **call de setup** com Matheus Silva (e Janeide Xavier quando aplicável) para fechar os
