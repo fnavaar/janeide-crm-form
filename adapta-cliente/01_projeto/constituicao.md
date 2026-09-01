@@ -34,6 +34,14 @@ Validação de entrada em fronteira de confiança; tratamento de erro que evita 
 segurança; acessibilidade; LGPD/dados pessoais. Corte nessas áreas reprova a task — sem exceção
 e sem julgamento de mérito (D17).
 
+## Regra de credenciais (2026-09-01)
+
+Nenhuma credencial — inclusive senhas, tokens, secrets ou chaves **de teste/fictícias** — deve
+ficar em **texto puro no código ou em documentos versionados**. Usar sempre `$secrets.get(...)`
+(no backend Skip) ou variável de ambiente no frontend, mesmo para dados fictícios. O valor de
+teste fica configurado no painel de segredos do ambiente, nunca no repositório. Esta regra vale
+em **todas as fases** e é especialmente crítica em produção.
+
 ## Dívida deliberada
 
 Simplificação intencional leva marca no ponto exato da decisão:
