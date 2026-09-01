@@ -13,7 +13,7 @@
 ## Stack e ferramentas permitidas
 
 - WhatsApp Business ou plataforma central autorizada, CRM, fonte de catálogo aprovada, painel operacional e ambiente de testes definido nas SPECs.
-- Kenlo/Quelo/site, agenda e conectores só entram como fonte depois da validação registrada na task correspondente.
+- Kenlo/site, agenda e conectores só entram como fonte depois da validação registrada na task correspondente.
 - Dependência ou ferramenta nova só entra por decisão do consultor — registre `DÚVIDA:` antes.
 
 ## O que o champion pode e não pode tocar

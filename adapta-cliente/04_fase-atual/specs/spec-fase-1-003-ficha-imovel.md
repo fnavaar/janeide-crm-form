@@ -4,7 +4,7 @@
 **Status:** bloqueada  
 **Dono:** SDR, com validação de catálogo por Janeide/Matheus  
 **Origem no escopo:** C2 inicial, RQ-002, RQ-008, D-101, D-102, AC-101/AC-106  
-**Degrau da solução:** construção mínima — consulta por código e card de uma fonte aprovada, sem sincronização completa ou busca avançada da Fase 2.
+**Degrau da soluão:** construção mínima — consulta por código e card de uma fonte aprovada, sem sincronização completa ou busca avançada da Fase 2.
 
 ## Contexto e decisões fechadas
 
@@ -15,7 +15,7 @@
 - **Decisões já fechadas:** não enviar imóvel indisponível/incompleto; não inventar preço, taxa,
   entrega ou decorado; Fase 1 usa consulta por código; busca por bairro/tipo e catálogo completo
   ficam para Fase 2; envio é iniciado pelo SDR, não por agente.
-- **Bloqueios:** **BLOQUEIO** — reconciliar Kenlo Mob/Quelo/site como fonte de verdade, acesso de
+- **Bloqueios:** **BLOQUEIO** — reconciliar Kenlo Mob/site como fonte de verdade, acesso de
   leitura, campos oficiais, vigência e mecanismo de mídia/WhatsApp.
 
 ## Resultado observável
@@ -50,7 +50,7 @@ incompleto ou indisponível é bloqueado e explica o motivo.
 
 | Origem/destino | Fonte de verdade | Campos/contrato | Autenticação/permissão | Timeout/retry/idempotência | Tratamento de erro |
 |---|---|---|---|---|---|
-| Painel → catálogo | Kenlo/Quelo/site ou fonte aprovada | `property_code`, `title`, `availability_status`, `price`, `condominium_fee`, `iptu`, `key_attributes`, `media_urls`, `source_ref`, `valid_until` | leitura aprovada; sem escrita | consulta não duplica; timeout a confirmar; não usar cache vencido | mostrar indisponibilidade/fonte não validada |
+| Painel → catálogo | Kenlo/site ou fonte aprovada | `property_code`, `title`, `availability_status`, `price`, `condominium_fee`, `iptu`, `key_attributes`, `media_urls`, `source_ref`, `valid_until` | leitura aprovada; sem escrita | consulta não duplica; timeout a confirmar; não usar cache vencido | mostrar indisponibilidade/fonte não validada |
 | Preview → WhatsApp | conversa autorizada | `lead_id`, `property_code`, `card_version`, `sent_by`, `sent_at`, `message_ref` | SDR confirma; template/conteúdo aprovado | uma ação por confirmação; retry somente com `message_ref` | manter preview e criar pendência, sem envio duplicado |
 
 | Regra de negócio | Condição | Ação/resultado | Exceção | Fonte |
@@ -125,6 +125,7 @@ são **BLOQUEIO**.
 - **Como monitorar:** cards bloqueados, dados vencidos, falhas de consulta e envios repetidos.
 - **Pendência conhecida:** fonte de verdade, permissão, campos e vigência ainda não confirmados.
 
+
 ## Tasks vinculadas
 
 | ID | Task | Critério binário | Recorte da prova | Evidência | Status |
@@ -136,7 +137,7 @@ são **BLOQUEIO**.
 
 ## Emendas
 
-<!-- Append-only: mudanças aprovadas depois da geração. -->
+<!-- Append-only: mudanças aprovadas depoiss da gerão. -->
 
 | Data | Origem do sinal | Micro-spec/task | Motivo |
 |---|---|---|---|

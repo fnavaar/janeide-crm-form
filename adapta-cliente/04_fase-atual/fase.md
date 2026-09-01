@@ -1,6 +1,6 @@
 # Fase 1 — Tarefas gerais
 
-**Status:** decomposição gerada; primeira leva de validação pendente e demais tasks bloqueadas por pré-condições das SPECs.  
+**Status:** leva 1 concluída (F1-T01 a F1-T04 com contratos de setup e fixtures); demais tasks bloqueadas por pré-condições.  
 **Fonte:** `01-SPECs/` e `matriz-de-rastreabilidade.md`  
 **Regra:** executar uma task por vez; não resolver BLOQUEIO inventando fonte, acesso, arquitetura ou aceite.
 
@@ -8,11 +8,11 @@
 
 | ID | Leva | Task | Dono | SPEC | Critério binário | Recorte da prova | Evidência esperada | Pré-condições | Ponto de parada | Status |
 |---|---:|---|---|---|---|---|---|---|---|---|
-| F1-T01 | 1 | Fechar contrato de captura, origem, webhook, CRM e dedupe | Matheus Silva | SPEC-1-001 | fonte, campos, permissão e `capture_event_id` aprovados ou bloqueio registrado | Contexto; Dados e integrações; Instruções 1–5 | decisão/registro de setup e fixture `cap-001` | call de setup | parar sem implementar se fonte/chave não forem aprovadas | PENDENTE |
-| F1-T02 | 1 | Fechar superfície do painel, modelo Lead e matriz de acesso | Matheus Silva | SPEC-1-002 | plataforma, armazenamento, campos e papéis SDR/gestor aprovados | Contexto; Dados; Checklist | mapa de campos, papéis e ambiente | call de setup | parar se houver PII/campo/retensão sem dono | PENDENTE |
-| F1-T03 | 1 | Fechar fonte do catálogo, campos, vigência e mídia | Matheus Silva | SPEC-1-003 | fonte única, status, validade, campos e mídia aprovados | Contexto; Dados; Regras RN-1–RN-5 | contrato de catálogo e imóvel de teste | call de setup | parar se Kenlo/Quelo/site ou vigência divergirem | PENDENTE |
-| F1-T04 | 1 | Fechar modelo do pedido de visita e regra de não reserva | Janeide Xavier | SPEC-1-004 | estados, janela, timezone e dono do próximo passo aprovados | Contexto; Dados; Regras RN-1–RN-5 | decisão operacional e exemplo sem booking | call de setup | parar se a Fase 1 for solicitada a reservar horário | PENDENTE |
-| F1-T05 | 2 | Configurar link e captura idempotente de lead | Matheus Silva | SPEC-1-001 | evento válido cria/atualiza um lead com origem e código | Resultado; Fluxo 1–5; CA-1-01/02 | ID do lead, log e captura | F1-T01; acesso aprovado | parar em evento sem ID, CRM ou permissão | BLOQUEADA |
+| F1-T01 | 1 | Fechar contrato de captura, origem, webhook, CRM e dedupe | Matheus Silva | SPEC-1-001 | fonte, campos, permissão e `capture_event_id` aprovados ou bloqueio registrado | Contexto; Dados e integrações; Instruções 1–5 | decisão/registro de setup e fixture `cap-001` | call de setup | parar sem implementar se fonte/chave não forem aprovadas | CONCLUÍDA 2026-08-18 |
+| F1-T02 | 1 | Fechar superfície do painel, modelo Lead e matriz de acesso | Matheus Silva | SPEC-1-002 | plataforma, armazenamento, campos e papéis SDR/gestor aprovados | Contexto; Dados; Checklist | mapa de campos, papéis e ambiente | call de setup | parar se houver PII/campo/retensão sem dono | CONCLUÍDA 2026-08-26 |
+| F1-T03 | 1 | Fechar fonte do catálogo, campos, vigência e mídia | Matheus Silva | SPEC-1-003 | fonte única, status, validade, campos e mídia aprovados | Contexto; Dados; Regras RN-1–RN-5 | contrato de catálogo e imóvel de teste | call de setup | parar se Kenlo/site ou vigência divergirem | CONCLUÍDA 2026-08-26 |
+| F1-T04 | 1 | Fechar modelo do pedido de visita e regra de não reserva | Janeide Xavier | SPEC-1-004 | estados, janela, timezone e dono do próximo passo aprovados | Contexto; Dados; Regras RN-1–RN-5 | decisão operacional e exemplo sem booking | call de setup | parar se a Fase 1 for solicitada a reservar horário | CONCLUÍDA 2026-08-26 |
+| F1-T05 | 2 | Configurar link e captura idempotente de lead | Matheus Silva | SPEC-1-001 | evento válido cria/atualiza um lead com origem e código | Resultado; Fluxo 1–5; CA-1-01/02 | ID do lead, log e captura | F1-T01; acesso aprovado | parar em evento sem ID, CRM ou permissão | CONCLUÍDA 2026-09-01 |
 | F1-T06 | 3 | Configurar fila e cartão mínimo de lead | Matheus Silva | SPEC-1-002 | lead válido aparece uma vez com origem, estado e contexto | Resultado; Fluxo 1–6; CA-1-05/06 | captura do cartão e auditoria | F1-T02 e F1-T05 | parar se campo ou papel não estiver autorizado | BLOQUEADA |
 | F1-T07 | 4 | Configurar consulta por código e preview de ficha | Matheus Silva | SPEC-1-003 | código ativo retorna preview com fonte/vigência sem preencher ausências | Resultado; Fluxo 1–3; CA-1-09/11 | preview, `source_ref` e bloqueio | F1-T03 e F1-T06 | parar em fonte vencida, campo ausente ou mídia insegura | BLOQUEADA |
 | F1-T08 | 5 | Configurar registro de pedido pendente sem agenda | SDR | SPEC-1-004 | pedido vinculado recebe `Pendente de agenda` e próximo passo | Resultado; Fluxo 1–5; CA-1-13/14 | ID do pedido e cartão | F1-T04 e F1-T06/F1-T07 | parar se surgir slot, corretor, chave ou reserva | BLOQUEADA |

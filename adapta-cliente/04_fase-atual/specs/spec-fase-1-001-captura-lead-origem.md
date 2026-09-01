@@ -4,7 +4,7 @@
 **Status:** bloqueada  
 **Dono:** Matheus Silva / equipe técnica, com validação operacional do SDR  
 **Origem no escopo:** C1, RQ-001, D-101, D-102, AC-101/AC-102  
-**Degrau da solução:** construção mínima — contrato de evento e adaptador isolado preservam a opção de manter Kenlo/Quelo ou trocar a fonte depois do inventário.
+**Degrau da solução:** construção mínima — contrato de evento e adaptador isolado preservam a opção de manter Kenlo ou trocar a fonte depois do inventário.
 
 ## Contexto e decisões fechadas
 
@@ -32,7 +32,7 @@ referência de correlação.
 - **Fora de escopo:** escolha final de fornecedor; migração/substituição de CRM; campanhas novas;
   qualificação IA; envio autônomo de conversa; agenda e no-show.
 - **Entradas e pré-condições:** link aprovado; conversa iniciada; canal autorizado; `capture_event_id`,
-  `source_channel`, `campaign_ref` quando houver, `property_code` quando houver, `contact_ref`,
+  `source_channel`, `campaign_ref` quando houver, `propery_code` quando houver, `contact_ref`,
   `conversation_ref`, `occurred_at` e `consent_status` disponíveis.
 - **Saídas/artefatos:** lead criado/atualizado; evento de captura; log de correlação; pendência
   recuperável quando falhar.
@@ -52,7 +52,7 @@ referência de correlação.
 | Origem/destino | Fonte de verdade | Campos/contrato | Autenticação/permissão | Timeout/retry/idempotência | Tratamento de erro |
 |---|---|---|---|---|---|
 | Link aprovado → canal de WhatsApp → adaptador | plataforma de WhatsApp a confirmar | `capture_event_id`, `source_channel`, `campaign_ref`, `property_code`, `contact_ref`, `conversation_ref`, `occurred_at`, `consent_status` | conta/número e webhook autorizados; acesso mínimo de leitura da conversa e criação de evento | timeout e retry conforme provedor a confirmar; sem retry cego; dedupe primário por `capture_event_id` | pendência com erro, timestamp e correlação |
-| Adaptador → fonte de Lead | CRM Kenlo/Quelo ou fonte aprovada após D-101 | `lead_id`, `contact_ref`, `phone`, `origin`, `property_code`, `status=Em Atendimento`, `created_at`, `updated_at` | criação/atualização apenas nos campos autorizados; sem migração | upsert idempotente; chave alternativa ao `capture_event_id` é **BLOQUEIO** | manter evento pendente e não marcar sucesso |
+| Adaptador → fonte de Lead | CRM Kenlo ou fonte aprovada após D-101 | `lead_id`, `contact_ref`, `phone`, `origin`, `property_code`, `status=Em Atendimento`, `created_at`, `updated_at` | criação/atualização apenas nos campos autorizados; sem migração | upsert idempotente; chave alternativa ao `capture_event_id` é **BLOQUEIO** | manter evento pendente e não marcar sucesso |
 
 | Regra de negócio | Condição | Ação/resultado | Exceção | Fonte |
 |---|---|---|---|---|
