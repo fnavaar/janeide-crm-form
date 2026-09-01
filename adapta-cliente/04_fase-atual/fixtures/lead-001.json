@@ -1,0 +1,16 @@
+{
+  "fixture_id": "lead-001",
+  "descricao": "Fixture de teste para painel de lead e contexto consultivo (SPEC-1-002, task F1-T02). Valores ficticios — nenhum dado real de cliente.",
+  "lead_id": "lead-001",
+  "contact_ref": "contato-teste-001",
+  "origin": "instagram",
+  "property_code": "CASAS-TURIM-001",
+  "status": "em_atendimento",
+  "consent_status": "opt_in",
+  "last_event_at": "2026-08-18T12:00:00-03:00",
+  "next_step": "validar necessidade",
+  "conversation_ref": "conv-teste-001",
+  "telefone_teste": "+55-11-99999-0000",
+  "nome_teste": "Lead Teste Fixture",
+  "observacoes": ["Telefone e nome sao ficticios; nao usar dado real de cliente.", "Ambiente de teste deve ser confirmado antes de executar este fixture.", "lead_id e a chave unica proposta (RN-1); confirmar com Matheus.", "origin e property_code devem ser validados contra a fonte aprovada (F1-T01).", "next_step e texto operacional (RN-5); nunca executar conteudo."]
+}

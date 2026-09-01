@@ -1,0 +1,15 @@
+{
+  "fixture_id": "imovel-001",
+  "descricao": "Fixture de teste para ficha valida de imovel - consulta por codigo (SPEC-1-003, task F1-T03). Valores ficticios — nenhum dado real de cliente.",
+  "property_code": "CASAS-TURIM-001",
+  "title": "Casa Teste Turim 001",
+  "availability_status": "ativo",
+  "price": 580000,
+  "condominium_fee": "nao_se_aplica",
+  "iptu": 2200,
+  "key_attributes": ["3 dormitorios", "2 vagas", "casa em condominio"],
+  "media_urls": ["https://fonte-aprovada-test.example.com/imoveis/casas-turim-001/foto-1.jpg"],
+  "source_ref": "fonte-teste-catalogo",
+  "valid_until": "2026-12-31",
+  "observacoes": ["Valores, titulo e URLs sao ficticios; nao usar dado real de cliente.", "source_ref e valid_until devem ser validados contra a fonte aprovada (F1-T03-RN-1).", "price/condominium_fee/iptu sao exatamente os da fonte; nunca inventar (RN-3).", "media_urls so pode conter URL da fonte aprovada; URL arbitraria bloqueia o card (RN-5).", "Ambiente de teste deve ser confirmado antes de executar este fixture."]
+}

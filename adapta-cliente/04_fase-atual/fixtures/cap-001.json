@@ -1,0 +1,15 @@
+{
+  "fixture_id": "cap-001",
+  "descricao": "Fixture de teste para captura de lead por link direto (SPEC-1-001, task F1-T01). Valores ficticios — nenhum dado real de cliente.",
+  "capture_event_id": "cap-001",
+  "source_channel": "instagram",
+  "campaign_ref": "campanha-lancamento-turim",
+  "property_code": "CASAS-TURIM-001",
+  "contact_ref": "contato-teste-001",
+  "conversation_ref": "conv-teste-001",
+  "occurred_at": "2026-08-18T12:00:00-03:00",
+  "consent_status": "opt_in",
+  "telefone_teste": "+55-11-99999-0000",
+  "nome_teste": "Lead Teste Fixture",
+  "observacoes": ["Telefone e nome sao ficticios; nao usar dado real de cliente.", "Ambiente de teste deve ser confirmado antes de executar este fixture.", "source_channel e property_code devem ser validados contra a fonte aprovada.", "capture_event_id e a chave de idempotencia proposta (RN-1); confirmar com Matheus."]
+}

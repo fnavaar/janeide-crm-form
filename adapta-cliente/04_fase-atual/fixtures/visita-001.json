@@ -1,0 +1,16 @@
+{
+  "fixture_id": "visita-001",
+  "descricao": "Fixture de teste para pedido de visita sem reserva (SPEC-1-004, task F1-T04). Valores ficticios — nenhum dado real de cliente.",
+  "visit_request_id": "visita-001",
+  "lead_id": "lead-001",
+  "property_id": "CASAS-TURIM-001",
+  "requested_start": "2026-09-05T10:00:00-03:00",
+  "requested_end": "2026-09-05T11:00:00-03:00",
+  "requested_text": null,
+  "timezone": "America/Bahia",
+  "status": "Pendente de agenda",
+  "next_step": "retomar pendencia na Fase 3",
+  "created_by": "sdr-teste-001",
+  "created_at": "2026-08-26T16:48:00-03:00",
+  "observacoes": ["Janela estruturada (requested_start/end) com timezone fixo America/Bahia (-03:00) conforme decisao de Janeide.", "requested_text null pois ha horario compatível na agenda geral; texto livre so quando nao ha horario (RN-3).", "status 'Pendente de agenda' — RN-1: nenhuma reserva/slot/corretor criado nesta fase.", "lead_id e property_id obrigatorios (RN-2); if um faltasse seria 'Precisa esclarecer'.", "Valores ficticios; sem PII real; ambiente de teste deve ser confirmado antes de executar."]
+}
