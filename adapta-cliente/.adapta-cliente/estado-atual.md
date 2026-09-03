@@ -3,11 +3,11 @@
 - task_id: F1-T06
 - champion: Matheus Silva
 - spec: 04_fase-atual/specs/spec-fase-1-002-painel-lead-contexto.md
-- etapa: aguardando_teste_humano
+- etapa: concluida
 - autorizacao_implementacao: confirmada + 2026-09-01T16:20-03:00 + "Vamos seguir"
-- teste_humano: pendente
-- verificacao_automatica: passou — build/QA 0.0.15 verde (setup, static, build, integrations, test); migration 0002 applied (leads.next_step, leads.phone_permission, lead_audit); hook fila_next_step validado por curl: 401 sem auth, next_step ok com auth, origem preservada (RN-3), auditoria append-only gravada; usuário SDR de teste criado via secret SDR_TEST_CREDENTIALS (credencial fora do código)
-- aprendizado: pendente
-- ultima_acao: F1-T06 implementada — migration 0002, hook POST /backend/v1/fila/next-step, página Index.tsx com fila/cartão/auditoria; credencial SDR movida para $secrets (regra anti-hardcode); QA 0.0.15 verde; verificação automática por curl OK
-- proxima_acao: aguardar teste humano do painel (fila, cartão, próximo passo, auditoria) para concluir F1-T06
-- atualizado_em: 2026-09-01T17:08:00-03:00
+- teste_humano: aprovado + 2026-09-03T11:37-03:00 + "Teste funcional aprovado — os 7 passos funcionaram: login, fila com 2 leads, cartão correto, próximo passo registrado, origem preservada (instagram), auditoria gravada. F1-T06 aprovada."
+- verificacao_automatica: passou — QA 0.0.26 verde; migration 0002 (next_step, phone_permission, lead_audit); hook fila_next_step (401 sem auth, origem preservada, auditoria); usuário SDR recriado via secret (0005); login validado
+- aprendizado: capturado: 06_notas/aprendizado-continuo/AP-2026-09-03-1135-secret-no-chat.md
+- ultima_acao: F1-T06 concluída após teste humano aprovado (7 passos do painel funcionando)
+- proxima_acao: aguardar troca da senha do SDR (usuário define no secret, agente recria e valida sem ver valor) e depois selecionar F1-T07 (consulta por código e preview)
+- atualizado_em: 2026-09-03T11:37-03:00
