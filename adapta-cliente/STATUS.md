@@ -9,8 +9,8 @@
 
 ## Progresso da fase
 
-- **Tasks:** 7/16 (44%) — F1-T01 a F1-T07 concluídas (leva 1 completa + levas 2, 3 e 4 do caminho principal). F1-T06: fila + cartão mínimo de lead aprovada em teste humano. F1-T07: consulta por código e preview de ficha (SPEC-1-003) aprovada em teste humano — preview com fonte/vigência em CASAS-TURIM-001; bloqueio com motivo em INATIVO e VENCIDO; "não encontrado" em código inexistente; nenhum dado inventado.
-- **Próxima task:** F1-T08 — configurar registro de pedido pendente sem agenda (SPEC-1-004), após F1-T04.
+- **Tasks:** 8/16 (50%) — F1-T01 a F1-T08 concluídas (leva 1 completa + levas 2, 3, 4 e 5 do caminho principal). F1-T06: fila + cartão mínimo de lead aprovada. F1-T07: consulta por código e preview de ficha aprovada. F1-T08: registro de pedido pendente sem agenda aprovada — dedupe (mesma janela não duplica), máscara de digitação, `Precisa esclarecer` com janela vazia, cancelamento com motivo.
+- **Próxima task:** F1-T09 — exercitar bordas da captura e fila de pendência (SPEC-1-001), após F1-T05.
 
 ## Pendências de produção
 
