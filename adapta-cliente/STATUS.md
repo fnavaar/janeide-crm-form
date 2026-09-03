@@ -1,5 +1,3 @@
-# STATUS — Projeto Imobiliária Janeide Xavier LTDA
-
 > **Atualizado em:** 2026-09-03 · **Por:** Janeidinha
 > O painel do projeto: fase atual, progresso e o que precisa de atenção.
 
@@ -11,8 +9,8 @@
 
 ## Progresso da fase
 
-- **Tasks:** 6/16 (38%) — F1-T01 a F1-T06 concluídas (leva 1 completa + levas 2 e 3 do caminho principal). F1-T06: fila + cartão mínimo de lead aprovada em teste humano (login, fila, cartão, próximo passo com origem preservada, auditoria).
-- **Próxima task:** F1-T07 — configurar consulta por código e preview de ficha (SPEC-1-003), após F1-T03 e F1-T06.
+- **Tasks:** 7/16 (44%) — F1-T01 a F1-T07 concluídas (leva 1 completa + levas 2, 3 e 4 do caminho principal). F1-T06: fila + cartão mínimo de lead aprovada em teste humano. F1-T07: consulta por código e preview de ficha (SPEC-1-003) aprovada em teste humano — preview com fonte/vigência em CASAS-TURIM-001; bloqueio com motivo em INATIVO e VENCIDO; "não encontrado" em código inexistente; nenhum dado inventado.
+- **Próxima task:** F1-T08 — configurar registro de pedido pendente sem agenda (SPEC-1-004), após F1-T04.
 
 ## Pendências de produção
 
