@@ -1,6 +1,6 @@
 # STATUS — Projeto Imobiliária Janeide Xavier LTDA
 
-> **Atualizado em:** 2026-09-01 · **Por:** Janeidinha
+> **Atualizado em:** 2026-09-03 · **Por:** Janeidinha
 > O painel do projeto: fase atual, progresso e o que precisa de atenção.
 
 ## Onde estamos
@@ -11,8 +11,8 @@
 
 ## Progresso da fase
 
-- **Tasks:** 5/16 (31%) — F1-T01 a F1-T05 concluídas (leva 1 completa + leva 2 iniciada). F1-T05: captura idempotente no projeto Skip de teste (webhook com validação X-Hub-Signature-256).
-- **Próxima task:** F1-T06 — configurar fila e cartão mínimo de lead (painel).
+- **Tasks:** 6/16 (38%) — F1-T01 a F1-T06 concluídas (leva 1 completa + levas 2 e 3 do caminho principal). F1-T06: fila + cartão mínimo de lead aprovada em teste humano (login, fila, cartão, próximo passo com origem preservada, auditoria).
+- **Próxima task:** F1-T07 — configurar consulta por código e preview de ficha (SPEC-1-003), após F1-T03 e F1-T06.
 
 ## Pendências de produção
 
