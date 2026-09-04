@@ -1,4 +1,4 @@
-> **Atualizado em:** 2026-09-03 · **Por:** Janeidinha
+> **Atualizado em:** 2026-09-04 · **Por:** Janeidinha
 > O painel do projeto: fase atual, progresso e o que precisa de atenção.
 
 ## Onde estamos
@@ -9,14 +9,15 @@
 
 ## Progresso da fase
 
-- **Tasks:** 8/16 (50%) — F1-T01 a F1-T08 concluídas (leva 1 completa + levas 2, 3, 4 e 5 do caminho principal). F1-T06: fila + cartão mínimo de lead aprovada. F1-T07: consulta por código e preview de ficha aprovada. F1-T08: registro de pedido pendente sem agenda aprovada — dedupe (mesma janela não duplica), máscara de digitação, `Precisa esclarecer` com janela vazia, cancelamento com motivo.
-- **Próxima task:** F1-T09 — exercitar bordas da captura e fila de pendência (SPEC-1-001), após F1-T05.
+- **Tasks:** 9/16 (56%) — F1-T01 a F1-T09 concluídas (leva 1 completa + levas 2–5 + 1ª da leva 6). F1-T08: registro de pedido pendente sem agenda aprovada. F1-T09: bordas da captura aprovada (inválido, repetido, opt-out, indisponível) — validação de `property_code` contra catálogo e falha de save com pendência.
+- **Próxima task:** F1-T10 — exercitar permissões, auditoria e dados incompletos do painel (SPEC-1-002), após F1-T06.
 
 ## Pendências de produção
 
 | Pendência | Responsável | Quando resolver |
 |---|---|---|
-| Trocar `META_APP_SECRET` (teste fictício) pelo **App Secret real da Meta** no Skip Cloud | Matheus Silva | **Antes de publicar** o projeto em produção |
+| **Rotacionar `META_APP_SECRET`**: está com o **valor de teste conhecido** (`teste-f1-t09-secret-2026`) usado na F1-T09 — usuário troca no Skip Cloud → Segredos para um valor só dele; agente valida sem ver (runtime, sem migration) | Matheus Silva | **Antes de publicar** o projeto em produção |
+| Trocar `META_APP_SECRET` pelo **App Secret real da Meta** no Skip Cloud | Matheus Silva | **Antes de publicar** o projeto em produção |
 
 ## Travas ativas
 

@@ -1,13 +1,14 @@
 # Estado atual — Adapta Cliente
 
-- task_id: F1-T08
+- task_id: F1-T09
 - champion: Matheus Silva
-- spec: 04_fase-atual/specs/spec-fase-1-004-pedido-visita.md
+- spec: 04_fase-atual/specs/spec-fase-1-001-captura-lead-origem.md
 - etapa: concluida
-- autorizacao_implementacao: confirmada + 2026-09-03T13:20-03:00 + "Plano da F1-T08 aprovado... Pode implementar."
-- teste_humano: aprovado + 2026-09-03T14:46-03:00 + "4º teste aprovado — todos os cenários funcionaram: dedupe corrigido (repetir mesma janela não duplica), máscara de digitação funcionando, 'Precisa esclarecer' confirmado sem alteração. F1-T08 aprovada."
-- verificacao_automatica: passou — QA 0.0.35 verde (build/static/integrations/test); dedupe com findRecordsByFilter (lead+imóvel+status não-cancelado); máscara maskWindow no bundle; 401 sem auth nos hooks
-- aprendizado: capturado: AP-2026-09-03-1150 (actor.id), AP-2026-09-03-1155 (datetime→RFC3339), AP-2026-09-03-1200 (dedupe ignora cancelado); sem sinal novo no fechamento
-- ultima_acao: F1-T08 concluída — fase.md (CONCLUÍDA), STATUS.md (8/16), changelog (conclusão), estado=concluida
-- proxima_acao: nenhuma (parar; aguardar pedido para F1-T09)
-- atualizado_em: 2026-09-03T14:46-03:00
+- autorizacao_implementacao: confirmada + 2026-09-03T14:58-03:00 + "Plano aprovado — pode implementar as duas correções..."
+- teste_humano: aprovado + 2026-09-04T12:53-03:00 + "Todos os 5 cenários passaram exatamente como esperado: 400 source_channel inválido; 200 pending invalid_property_code sem criar lead; 201 created / 200 duplicate (mesmo lead_id); 200 rejected opt-out. F1-T09 aprovada."
+- verificacao_automatica: passou — QA 0.0.36 verde; 5 cenários executados via curl com assinatura pré-calculada (secret de teste definido pelo agente); 401 pré-assinatura confirmados
+- aprendizado: capturado:AP-2026-09-04-1200-hmac-gerado-com-python (assinatura webhook) — pendente publicação GitHub
+- ultima_acao: F1-T09 concluída — fase.md (CONCLUÍDA), STATUS.md (9/16), changelog (conclusão), estado=concluida
+- pendencia_aberta: META_APP_SECRET está com valor de teste conhecido (teste-f1-t09-secret-2026) — requer rotação pelo usuário no painel para valor só dele; agente valida sem ver (runtime, sem migration)
+- proxima_acao: aguardar pedido para F1-T10; antes, usuário deve rotacionar META_APP_SECRET
+- atualizado_em: 2026-09-04T12:53-03:00
