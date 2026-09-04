@@ -9,6 +9,6 @@
 - verificacao_automatica: passou — QA 0.0.36 verde; 5 cenários executados via curl com assinatura pré-calculada (secret de teste definido pelo agente); 401 pré-assinatura confirmados
 - aprendizado: capturado:AP-2026-09-04-1200-hmac-gerado-com-python (assinatura webhook) — pendente publicação GitHub
 - ultima_acao: F1-T09 concluída — fase.md (CONCLUÍDA), STATUS.md (9/16), changelog (conclusão), estado=concluida
-- pendencia_aberta: META_APP_SECRET está com valor de teste conhecido (teste-f1-t09-secret-2026) — requer rotação pelo usuário no painel para valor só dele; agente valida sem ver (runtime, sem migration)
-- proxima_acao: aguardar pedido para F1-T10; antes, usuário deve rotacionar META_APP_SECRET
-- atualizado_em: 2026-09-04T12:53-03:00
+- pendencia_aberta: META_APP_SECRET rotacionado 2026-09-04 (valor de teste desativado, 401 confirmado; novo valor só do usuário, validado sem ver). Resta trocar pelo App Secret real da Meta antes de produção.
+- proxima_acao: aguardar pedido para F1-T10
+- atualizado_em: 2026-09-04T14:01-03:00

@@ -16,8 +16,7 @@
 
 | Pendência | Responsável | Quando resolver |
 |---|---|---|
-| **Rotacionar `META_APP_SECRET`**: está com o **valor de teste conhecido** (`teste-f1-t09-secret-2026`) usado na F1-T09 — usuário troca no Skip Cloud → Segredos para um valor só dele; agente valida sem ver (runtime, sem migration) | Matheus Silva | **Antes de publicar** o projeto em produção |
-| Trocar `META_APP_SECRET` pelo **App Secret real da Meta** no Skip Cloud | Matheus Silva | **Antes de publicar** o projeto em produção |
+| Trocar `META_APP_SECRET` pelo **App Secret real da Meta** no Skip Cloud (valor de teste já rotacionado em 2026-09-04) | Matheus Silva | **Antes de publicar** o projeto em produção |
 
 ## Travas ativas
 
