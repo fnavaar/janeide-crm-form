@@ -1,4 +1,6 @@
-> **Atualizado em:** 2026-09-04 · **Por:** Janeidinha
+# STATUS — Projeto Imobiliária Janeide Xavier LTDA
+
+> **Atualizado em:** 2026-09-07 · **Por:** Janeidinha
 > O painel do projeto: fase atual, progresso e o que precisa de atenção.
 
 ## Onde estamos
@@ -9,8 +11,8 @@
 
 ## Progresso da fase
 
-- **Tasks:** 9/16 (56%) — F1-T01 a F1-T09 concluídas (leva 1 completa + levas 2–5 + 1ª da leva 6). F1-T08: registro de pedido pendente sem agenda aprovada. F1-T09: bordas da captura aprovada (inválido, repetido, opt-out, indisponível) — validação de `property_code` contra catálogo e falha de save com pendência.
-- **Próxima task:** F1-T10 — exercitar permissões, auditoria e dados incompletos do painel (SPEC-1-002), após F1-T06.
+- **Tasks:** 10/16 (63%) — F1-T01 a F1-T10 concluídas. F1-T10: permissões, auditoria e dados incompletos do painel aprovadas (matriz por papel com log de acesso negado sem valor; aviso de dados incompletos no cartão).
+- **Próxima task:** F1-T11 — exercitar bloqueios de catálogo, mídia e envio duplicado (SPEC-1-003), após F1-T07.
 
 ## Pendências de produção
 
