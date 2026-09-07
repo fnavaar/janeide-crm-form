@@ -12,5 +12,11 @@
   "next_step": "retomar pendencia na Fase 3",
   "created_by": "sdr-teste-001",
   "created_at": "2026-08-26T16:48:00-03:00",
-  "observacoes": ["Janela estruturada (requested_start/end) com timezone fixo America/Bahia (-03:00) conforme decisao de Janeide.", "requested_text null pois ha horario compatível na agenda geral; texto livre so quando nao ha horario (RN-3).", "status 'Pendente de agenda' — RN-1: nenhuma reserva/slot/corretor criado nesta fase.", "lead_id e property_id obrigatorios (RN-2); if um faltasse seria 'Precisa esclarecer'.", "Valores ficticios; sem PII real; ambiente de teste deve ser confirmado antes de executar."]
+  "observacoes": [
+    "Janela estruturada (requested_start/end) com timezone fixo America/Bahia (-03:00) conforme decisao de Janeide.",
+    "requested_text null pois ha horario compatível na agenda geral; texto livre so quando nao ha horario (RN-3).",
+    "status 'Pendente de agenda' — RN-1: nenhuma reserva/slot/corretor criado nesta fase.",
+    "lead_id e property_id obrigatorios (RN-2); if um faltasse seria 'Precisa esclarecer'.",
+    "Valores ficticios; sem PII real; ambiente de teste deve ser confirmado antes de executar."
+  ]
 }

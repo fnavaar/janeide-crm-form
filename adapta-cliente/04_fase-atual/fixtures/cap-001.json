@@ -11,5 +11,10 @@
   "consent_status": "opt_in",
   "telefone_teste": "+55-11-99999-0000",
   "nome_teste": "Lead Teste Fixture",
-  "observacoes": ["Telefone e nome sao ficticios; nao usar dado real de cliente.", "Ambiente de teste deve ser confirmado antes de executar este fixture.", "source_channel e property_code devem ser validados contra a fonte aprovada.", "capture_event_id e a chave de idempotencia proposta (RN-1); confirmar com Matheus."]
+  "observacoes": [
+    "Telefone e nome sao ficticios; nao usar dado real de cliente.",
+    "Ambiente de teste deve ser confirmado antes de executar este fixture.",
+    "source_channel e property_code devem ser validados contra a fonte aprovada.",
+    "capture_event_id e a chave de idempotencia proposta (RN-1); confirmar com Matheus."
+  ]
 }

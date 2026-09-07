@@ -12,5 +12,11 @@
   "conversation_ref": "conv-teste-001",
   "telefone_teste": "+55-11-99999-0000",
   "nome_teste": "Lead Teste Fixture",
-  "observacoes": ["Telefone e nome sao ficticios; nao usar dado real de cliente.", "Ambiente de teste deve ser confirmado antes de executar este fixture.", "lead_id e a chave unica proposta (RN-1); confirmar com Matheus.", "origin e property_code devem ser validados contra a fonte aprovada (F1-T01).", "next_step e texto operacional (RN-5); nunca executar conteudo."]
+  "observacoes": [
+    "Telefone e nome sao ficticios; nao usar dado real de cliente.",
+    "Ambiente de teste deve ser confirmado antes de executar este fixture.",
+    "lead_id e a chave unica proposta (RN-1); confirmar com Matheus.",
+    "origin e property_code devem ser validados contra a fonte aprovada (F1-T01).",
+    "next_step e texto operacional (RN-5); nunca executar conteudo."
+  ]
 }
