@@ -32,7 +32,7 @@ referência de correlação.
 - **Fora de escopo:** escolha final de fornecedor; migração/substituição de CRM; campanhas novas;
   qualificação IA; envio autônomo de conversa; agenda e no-show.
 - **Entradas e pré-condições:** link aprovado; conversa iniciada; canal autorizado; `capture_event_id`,
-  `source_channel`, `campaign_ref` quando houver, `propery_code` quando houver, `contact_ref`,
+  `source_channel`, `campaign_ref` quando houver, `property_code` quando houver, `contact_ref`,
   `conversation_ref`, `occurred_at` e `consent_status` disponíveis.
 - **Saídas/artefatos:** lead criado/atualizado; evento de captura; log de correlação; pendência
   recuperável quando falhar.
