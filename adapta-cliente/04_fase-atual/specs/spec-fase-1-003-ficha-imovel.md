@@ -4,7 +4,7 @@
 **Status:** bloqueada  
 **Dono:** SDR, com validação de catálogo por Janeide/Matheus  
 **Origem no escopo:** C2 inicial, RQ-002, RQ-008, D-101, D-102, AC-101/AC-106  
-**Degrau da soluão:** construção mínima — consulta por código e card de uma fonte aprovada, sem sincronização completa ou busca avançada da Fase 2.
+**Degrau da solução:** construção mínima — consulta por código e card de uma fonte aprovada, sem sincronização completa ou busca avançada da Fase 2.
 
 ## Contexto e decisões fechadas
 
@@ -125,7 +125,6 @@ são **BLOQUEIO**.
 - **Como monitorar:** cards bloqueados, dados vencidos, falhas de consulta e envios repetidos.
 - **Pendência conhecida:** fonte de verdade, permissão, campos e vigência ainda não confirmados.
 
-
 ## Tasks vinculadas
 
 | ID | Task | Critério binário | Recorte da prova | Evidência | Status |
@@ -137,7 +136,7 @@ são **BLOQUEIO**.
 
 ## Emendas
 
-<!-- Append-only: mudanças aprovadas depoiss da gerão. -->
+<!-- Append-only: mudanças aprovadas depois da geração. -->
 
 | Data | Origem do sinal | Micro-spec/task | Motivo |
 |---|---|---|---|
