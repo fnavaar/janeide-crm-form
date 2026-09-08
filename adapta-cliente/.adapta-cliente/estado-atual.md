@@ -1,13 +1,13 @@
 # Estado atual — Adapta Cliente
 
-- task_id: F1-T12
+- task_id: F1-T13
 - champion: Matheus Silva
-- spec: 04_fase-atual/specs/spec-fase-1-004-pedido-visita.md (F1-T12)
+- spec: 04_fase-atual/specs/spec-fase-1-001-captura-lead-origem.md (F1-T13)
 - etapa: concluida
-- autorizacao_implementacao: confirmada + 2026-09-07T19:31-03:00 + "Aprovado, com as observações: 1. Migration 0022 ok, mas teste com cuidado/rollback antes de re-teste; 2. old_value ok; 3. janela estruturada vence, texto contexto; 4. pode implementar o plano completo e preparar os 7 cenários."
-- teste_humano: aprovado + 2026-09-08T23:45-03:00 + "Todos os 7 cenários da F1-T12 agora estão comprovados... F1-T12 aprovada."
-- verificacao_automatica: passou — Skip 0.0.57 / 88b59bb; migration 0022 aplicada; setup, análise estática, build, integrações e testes verdes; prova autenticada confirmou already_cancelled, preservação de cancelled_at/cancel_reason e ausência de novo registro
-- aprendizado: capturado: 06_notas/aprendizado-continuo/AP-2026-09-08-2345-idempotencia-cancelamento-endpoint.md
-- ultima_acao: F1-T12 fechada após revalidação independente e aprovação dos 7 cenários
-- proxima_acao: aguardar pedido explícito para analisar F1-T13
-- atualizado_em: 2026-09-08T23:45-03:00
+- autorizacao_implementacao: confirmada + 2026-09-09T00:05-03:00 + "Plano aprovado — pode executar a demonstração ponta a ponta (webhook → lead → fila → cartão), usando o fixture cap-001, com regressão de duplicidade incluída. Sem PII real, sem expor secret ou token. Prossiga."
+- teste_humano: aprovado + 2026-09-09T00:15-03:00 + "Handoff confirmado no painel... F1-T13 aprovada — os dois lados comprovados: criação nova (201) e duplicidade (200, sem segundo lead)."
+- verificacao_automatica: passou — Skip 0.0.57 / 88b59bb; `cap-demo-f1t13` retornou HTTP 201 created com novo lead_id; reenvio de `cap-001` retornou HTTP 200 duplicate com mesmo lead_id; logs confirmaram POSTs; handoff visual fila→cartão aprovado pela Janeide
+- aprendizado: capturado: 06_notas/aprendizado-continuo/AP-2026-09-09-0015-secret-temporario-deve-rotacionar.md
+- ultima_acao: F1-T13 fechada após revalidação e aprovação humana dos dois caminhos ponta a ponta
+- proxima_acao: antes de analisar F1-T14, trocar META_APP_SECRET temporário pelo valor definitivo escolhido pela Janeide; GitHub changelog segue pendente por credencial local
+- atualizado_em: 2026-09-09T00:15-03:00
