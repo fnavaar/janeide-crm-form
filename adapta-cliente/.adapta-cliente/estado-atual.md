@@ -1,13 +1,13 @@
 # Estado atual — Adapta Cliente
 
-- task_id: nenhuma (F1-T11 concluída e aprovada)
+- task_id: F1-T12
 - champion: Matheus Silva
-- spec: 04_fase-atual/specs/spec-fase-1-003-ficha-imovel.md (F1-T11)
+- spec: 04_fase-atual/specs/spec-fase-1-004-pedido-visita.md (F1-T12)
 - etapa: concluida
-- autorizacao_implementacao: confirmada + 2026-09-07T18:56-03:00 + "Aprovado — convenção price > 0 = informado... Pode implementar e descartar a migration 0021."
-- teste_humano: aprovado + 2026-09-07T19:07-03:00 + "Todos os cenários da F1-T11 confirmados... F1-T11 aprovada."
-- verificacao_automatica: passou — QA verde até 0.0.56; migration 0020 aplicada; 401 sem auth confirmado anteriormente; hooks ficha/envio lidos de volta; checklist independente executado inline
-- aprendizado: capturado — AP-2026-09-07-1815-campo-json-em-goja-nao-e-array-js.md; convenção price > 0 e dívida consulte registradas
-- ultima_acao: fechamento F1-T11 (fase.md CONCLUÍDA, STATUS 11/16, changelog, aprendizado, estado)
-- proxima_acao: aguardar pedido do usuário para iniciar F1-T12 (janela incompleta, duplicidade e tentativa de booking — SPEC-1-004)
-- atualizado_em: 2026-09-07T19:10-03:00
+- autorizacao_implementacao: confirmada + 2026-09-07T19:31-03:00 + "Aprovado, com as observações: 1. Migration 0022 ok, mas teste com cuidado/rollback antes de re-teste; 2. old_value ok; 3. janela estruturada vence, texto contexto; 4. pode implementar o plano completo e preparar os 7 cenários."
+- teste_humano: aprovado + 2026-09-08T23:45-03:00 + "Todos os 7 cenários da F1-T12 agora estão comprovados... F1-T12 aprovada."
+- verificacao_automatica: passou — Skip 0.0.57 / 88b59bb; migration 0022 aplicada; setup, análise estática, build, integrações e testes verdes; prova autenticada confirmou already_cancelled, preservação de cancelled_at/cancel_reason e ausência de novo registro
+- aprendizado: capturado: 06_notas/aprendizado-continuo/AP-2026-09-08-2345-idempotencia-cancelamento-endpoint.md
+- ultima_acao: F1-T12 fechada após revalidação independente e aprovação dos 7 cenários
+- proxima_acao: aguardar pedido explícito para analisar F1-T13
+- atualizado_em: 2026-09-08T23:45-03:00

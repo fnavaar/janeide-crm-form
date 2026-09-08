@@ -11,8 +11,8 @@
 
 ## Progresso da fase
 
-- **Tasks:** 11/16 (69%) — F1-T01 a F1-T11 concluídas. F1-T10: permissões, auditoria e dados incompletos do painel aprovadas. F1-T11: bloqueios de catálogo, mídia insegura e envio duplicado aprovados nos 7 cenários.
-- **Próxima task:** F1-T12 — exercitar janela incompleta, duplicidade e tentativa de booking (SPEC-1-004), após F1-T08.
+- **Tasks:** 12/16 (75%) — F1-T01 a F1-T12 concluídas. F1-T10: permissões, auditoria e dados incompletos do painel aprovadas. F1-T11: bloqueios de catálogo, mídia insegura e envio duplicado aprovados nos 7 cenários. F1-T12: janela incompleta, duplicidade, cancelamento idempotente, prioridade janela/texto e bloqueio de booking aprovados nos 7 cenários.
+- **Próxima task:** F1-T13 — demonstrar captura ponta a ponta e handoff ao SDR (SPEC-1-001), após F1-T09.
 
 ## Pendências de produção
 
