@@ -1,42 +1,19 @@
 {
   "schemaVersion": "adapta-cliente-handoff/v1",
-  "phase": 1,
+  "phase": 2,
   "versions": {
-    "package": "0.1.0",
+    "package": "0.2.0",
     "adapta": "0.7.0",
     "adaptaCliente": "0.2.0"
   },
-  "generatedAt": "2026-08-17T23:59:00.588Z",
+  "generatedAt": "2026-09-14T12:00:00-03:00",
   "files": [
-    {
-      "path": "04_fase-atual/README.md",
-      "sha256": "57843f15414253dfbcc46b12fc0860f4aa0481fefdd8440eca68b80a3663f4cc",
-      "classification": "template-publico"
-    },
-    {
-      "path": "04_fase-atual/fase.md",
-      "sha256": "0eda567cf07c927366b84fae867128bedd71efac2490e415dd1b510d984a2cef",
-      "classification": "fase-atual"
-    },
-    {
-      "path": "04_fase-atual/specs/spec-fase-1-001-captura-lead-origem.md",
-      "sha256": "ad5e936dfad535c3de17a6650636cfe6c63733fefa7907ee14fb293b38c08bbf",
-      "classification": "spec-fase-atual"
-    },
-    {
-      "path": "04_fase-atual/specs/spec-fase-1-002-painel-lead-contexto.md",
-      "sha256": "b16660846f6ab71cb1273eab848b0a43dfc702f675a31d51b7fa466a217f18b7",
-      "classification": "spec-fase-atual"
-    },
-    {
-      "path": "04_fase-atual/specs/spec-fase-1-003-ficha-imovel.md",
-      "sha256": "28cd658a780eacde18c2a45fbb6f8214f67c4017185693ac41d7ea5f11a65c2d",
-      "classification": "spec-fase-atual"
-    },
-    {
-      "path": "04_fase-atual/specs/spec-fase-1-004-pedido-visita.md",
-      "sha256": "f77b4e2809423cd4403186931dbdc4cbff6dada429b3ca0a97a116a4caa3e114",
-      "classification": "spec-fase-atual"
-    }
+    {"path":"04_fase-atual/README.md","sha256":"6adbf24b1c1221297f41e1cce2f856cf2779090e0b70a11723bc6ebcbe4425fc","classification":"template-publico"},
+    {"path":"04_fase-atual/fase.md","sha256":"22ab7e152d87bfee16add79595b0199e1dfc5a4c17113a9117c5515d39488a2c","classification":"fase-atual"},
+    {"path":"04_fase-atual/specs/00-INDICE.md","sha256":"38980b6854c453c10e528d50f684d952dd639880b501113bbd3255abb59d48d1","classification":"spec-fase-atual"},
+    {"path":"04_fase-atual/specs/spec-fase-2-001-catalogo-carga-vigencia.md","sha256":"f8eb53b028df9cfe4f4243cbccb8d8e54c290a5e3f1aad5da96e48d4aa27fa04","classification":"spec-fase-atual"},
+    {"path":"04_fase-atual/specs/spec-fase-2-002-busca-ficha-vigente.md","sha256":"458714cc085e05a482f2077a1508fbf3d8718f9699bc26a479faf1a3c3b8fccc","classification":"spec-fase-atual"},
+    {"path":"04_fase-atual/specs/spec-fase-2-003-card-envio-humano.md","sha256":"fbe990ecd1029450b6795d068eef328c9d77b87fa22f1192c8494ba9f8ec9a6b","classification":"spec-fase-atual"},
+    {"path":"04_fase-atual/specs/spec-fase-2-004-atendimento-prioridade-handoff.md","sha256":"514c1be8410739bcd581f49a299fed0290db4a2cb5df4853dced3794e0d6495f","classification":"spec-fase-atual"}
   ]
 }
