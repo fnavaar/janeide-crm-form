@@ -1,4 +1,4 @@
-# AP-2026-09-08 2345 — Idempotência de cancelamento no endpoint
+# AP-2026-09-08-2345 — Idempotência de cancelamento no endpoint
 
 - Status: candidato
 - Escopo: projeto do cliente

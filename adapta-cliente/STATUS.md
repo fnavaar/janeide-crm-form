@@ -1,18 +1,18 @@
 # STATUS — Projeto Imobiliária Janeide Xavier LTDA
 
-> **Atualizado em:** 2026-09-07 · **Por:** Janeidinha
+> **Atualizado em:** 2026-09-14 · **Por:** Janeidinha
 > O painel do projeto: fase atual, progresso e o que precisa de atenção.
 
 ## Onde estamos
 
-- **Fase atual:** Fase 1 — primeira vertical de atendimento · aberta documentalmente em 2026-08-17 · reunião de fechamento a agendar
+- **Fase atual:** Fase 1 — primeira vertical de atendimento · checklist completo em 2026-09-10 · validação final do consultor pendente
 - **Objetivo desta fase:** capturar lead com origem, organizar fila/contexto, consultar ficha vigente e registrar pedido de visita sem reserva automática.
-- **No prazo?** em risco — fonte, permissões, plataforma, catálogo e ambiente de testes ainda não validados.
+- **Situação:** execução e testes humanos da Fase 1 concluídos; encerramento documental depende da sincronização com o GitHub e da validação final do consultor.
 
 ## Progresso da fase
 
-- **Tasks:** 14/16 (88%) — F1-T01 a F1-T14 concluídas. F1-T10: permissões, auditoria e dados incompletos do painel aprovadas. F1-T11: bloqueios de catálogo, mídia insegura e envio duplicado aprovados nos 7 cenários. F1-T12: janela incompleta, duplicidade, cancelamento idempotente, prioridade janela/texto e bloqueio de booking aprovados nos 7 cenários. F1-T13: criação ponta a ponta e handoff ao SDR aprovados com criação nova (201) e duplicidade (200). F1-T14: próximo passo/origem/auditoria aprovados; corretor sem atribuição recebe bloqueio explícito sem vazamento.
-- **Próxima task:** F1-T15 — demonstrar ficha vigente e envio humano rastreável (SPEC-1-003), após F1-T11.
+- **Tasks:** 16/16 (100%) — F1-T01 a F1-T16 concluídas. F1-T15: ficha vigente, envio humano rastreável, repetição sem segundo vínculo e 4 bloqueios aprovados manualmente. F1-T16: pedido com janela estruturada pendente, repetição sem segundo registro, texto livre em `Precisa esclarecer`, ausência de booking e cancelamento com motivo/histórico aprovados manualmente.
+- **Próxima etapa:** validar o conteúdo publicado no GitHub e obter a validação final do consultor antes de considerar a Fase 1 formalmente encerrada.
 
 ## Pendências de produção
 
@@ -20,30 +20,25 @@
 |---|---|---|
 | Trocar `META_APP_SECRET` pelo **App Secret real da Meta** no Skip Cloud (valor de teste já rotacionado em 2026-09-04) | Matheus Silva | **Antes de publicar** o projeto em produção |
 
-## Travas ativas
+## Pendências de encerramento
 
-| Trava | Desde | Quem resolve | Ação em curso |
-|---|---|---|---|
-| Fonte e permissão de WhatsApp/CRM/webhook/dedupe | 2026-08-17 | Janeide/Matheus | validar fonte, campos e `capture_event_id` |
-| Plataforma, armazenamento e papéis do painel | 2026-08-17 | Matheus/Janeide | contrato-painel.md: 6/6 itens confirmados (hospedagem Skip Cloud, retenção, modelo Lead, chave única, matriz de acesso, ambiente de teste dedicado) |
-| Fonte do catálogo, vigência e mídia | 2026-08-17 | Matheus | contrato-catalogo.md criado (6 itens); confirmar Kenlo como fonte única e fechar vigência/mídia |
-| Modelo de pedido, janela e timezone | 2026-08-17 | Janeide/SDR | contrato-pedido-visita.md criado; janela (agenda geral/texto livre) e timezone (America/Bahia) confirmados; fechar itens 1/2/5/6 |
-| Ambiente de teste e evidências | 2026-08-17 | Matheus/Adapta | preparar fixtures e logs sem PII |
+| Pendência | Responsável | Quando resolver |
+|---|---|---|
+| Confirmar leitura e validação final do conteúdo da Fase 1 no GitHub | Consultor / Matheus Silva | Após a sincronização |
 
 ## Entregas concluídas
 
 | Fase | O que foi entregue | Fechada em |
 |---|---|---|
-| — | Nenhuma fase concluída; Fase 1 está em preparação bloqueada | — |
+| Fase 1 | Checklist funcional completo: captura, fila, catálogo, pedido de visita, bordas e demonstrações ponta a ponta; validação final do consultor pendente | Aguardando validação final |
 
 ## Próxima reunião
 
-A agendar — call de setup com Matheus Silva e Janeide Xavier para fechar os itens dos contratos de setup já criados:
+A agendar — validação final do consultor com Matheus Silva e Janeide Xavier, após a sincronização do conteúdo local para o GitHub.
 
-**Contrato de captura (F1-T01)** — 7 itens: fonte WhatsApp, CRM, mecanismo, campos, permissões, idempotência (`capture_event_id`) e ambiente de teste.
+**Evidências a revisar:**
 
-**Contrato de painel (F1-T02)** — 6 itens: superfície/plataforma, armazenamento/retenção, modelo Lead, chave única, matriz de acesso por papel e ambiente de teste.
-
-**Contrato de catálogo (F1-T03)** — 6 itens: fonte de verdade (Kenlo Mob), acesso de leitura, campos mínimos, vigência/validade, mídia/envio por WhatsApp e responsável pela atualização do catálogo.
-
-**Contrato de pedido de visita (F1-T04)** — 6 itens: modelo de pedido e estados, campos do pedido, janela estruturada vs. texto livre, timezone, fonte futura de agenda e dono do próximo passo. Janela e timezone (America/Bahia) já confirmados por Janeide; itens 1/2/5/6 aguardam call de setup.
+- F1-T01 a F1-T04: contratos de captura, painel, catálogo e pedido de visita confirmados.
+- F1-T05 a F1-T12: captura idempotente, fila, ficha, pedido sem reserva e cenários de borda verificados.
+- F1-T13 a F1-T16: demonstrações ponta a ponta, permissões, ficha vigente/envio rastreável e handoff sem booking aprovados manualmente.
+- Pendência separada de produção: substituir o `META_APP_SECRET` de teste pelo valor real da Meta antes de publicar em produção.

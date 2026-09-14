@@ -1,6 +1,6 @@
 # Fase 1 — Tarefas gerais
 
-**Status:** leva 1 concluída (F1-T01 a F1-T04 com contratos de setup e fixtures); demais tasks bloqueadas por pré-condições.  
+**Status:** checklist funcional completo (F1-T01 a F1-T16 concluídas em 2026-09-10); validação final do consultor e sincronização no GitHub pendentes.  
 **Fonte:** `01-SPECs/` e `matriz-de-rastreabilidade.md`  
 **Regra:** executar uma task por vez; não resolver BLOQUEIO inventando fonte, acesso, arquitetura ou aceite.
 
@@ -22,8 +22,8 @@
 | F1-T12 | 6 | Exercitar janela incompleta, duplicidade e tentativa de booking | SDR | SPEC-1-004 | pedido incompleto esclarece; repetição não duplica; booking é bloqueado | Cenários; RN-1–RN-5 | pedido, log e bloqueio de reserva | F1-T08 | parar se pedido for tratado como agendado | CONCLUÍDA 2026-09-08 |
 | F1-T13 | 7 | Demonstrar captura ponta a ponta e handoff ao SDR | SDR | SPEC-1-001 | CA-1-01 a CA-1-04 passam no fixture aprovado | TDD RED/GREEN/REGRESSÃO; Handoff | vídeo/capturas, logs e aceite SDR/Matheus | F1-T09 | parar e devolver à SPEC se qualquer CA falhar | CONCLUÍDA 2026-09-09 |
 | F1-T14 | 7 | Demonstrar fila, próximo passo e auditoria do lead | SDR | SPEC-1-002 | CA-1-05 a CA-1-08 passam sem vazamento | TDD; Handoff | captura, log e aceite SDR | F1-T10 | parar e devolver à SPEC se qualquer CA falhar | CONCLUÍDA 2026-09-10 |
-| F1-T15 | 7 | Demonstrar ficha vigente e envio humano rastreável | SDR | SPEC-1-003 | CA-1-09 a CA-1-12 passam sem dado inventado/duplicidade | TDD; Handoff | preview, `message_ref`, vínculo e aceite | F1-T11 | parar e devolver à SPEC se qualquer CA falhar | BLOQUEADA |
-| F1-T16 | 7 | Demonstrar pedido pendente e handoff para Fase 3 | SDR | SPEC-1-004 | CA-1-13 a CA-1-16 passam sem reserva | TDD; Handoff | pedido, estado, bloqueio e aceite | F1-T12 | parar e devolver à SPEC se qualquer CA falhar | BLOQUEADA |
+| F1-T15 | 7 | Demonstrar ficha vigente e envio humano rastreável | SDR | SPEC-1-003 | CA-1-09 a CA-1-12 passam sem dado inventado/duplicidade | TDD; Handoff | preview, `message_ref`, vínculo e aceite | F1-T11 | parar e devolver à SPEC se qualquer CA falhar | CONCLUÍDA 2026-09-10 |
+| F1-T16 | 7 | Demonstrar pedido pendente e handoff para Fase 3 | SDR | SPEC-1-004 | CA-1-13 a CA-1-16 passam sem reserva | TDD; Handoff | pedido, estado, bloqueio e aceite | F1-T12 | parar e devolver à SPEC se qualquer CA falhar | CONCLUÍDA 2026-09-10 |
 
 ## Dependências de execução
 
