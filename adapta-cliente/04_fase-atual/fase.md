@@ -1,6 +1,6 @@
 # Fase 1 — Tarefas gerais
 
-**Status:** checklist funcional completo (F1-T01 a F1-T16 concluídas em 2026-09-10); validação final do consultor e sincronização no GitHub pendentes.  
+**Status:** checklist funcional completo (F1-T01 a F1-T16 concluídas em 2026-09-10); documentação sincronizada no GitHub em 2026-09-14; validação final do consultor pendente.  
 **Fonte:** `01-SPECs/` e `matriz-de-rastreabilidade.md`  
 **Regra:** executar uma task por vez; não resolver BLOQUEIO inventando fonte, acesso, arquitetura ou aceite.
 
