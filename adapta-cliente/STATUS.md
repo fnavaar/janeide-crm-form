@@ -24,7 +24,7 @@
 
 | Pendência | Responsável | Quando resolver |
 |---|---|---|
-| Confirmar leitura e validação final do conteúdo da Fase 1 no GitHub | Consultor / Matheus Silva | Após a sincronização |
+| Confirmar leitura e validação final do conteúdo da Fase 1 no GitHub | Consultor / Matheus Silva | Após a sincronização — **sincronização byte a byte concluída em 2026-09-14** (changelog.md corrigido no commit `4f73921`, blob SHA remoto == local, confirmado por leitura de volta) |
 
 ## Entregas concluídas
 
