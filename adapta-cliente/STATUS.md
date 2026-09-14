@@ -7,12 +7,12 @@
 
 - **Fase atual:** Fase 1 — primeira vertical de atendimento · checklist completo em 2026-09-10 · validação final do consultor pendente
 - **Objetivo desta fase:** capturar lead com origem, organizar fila/contexto, consultar ficha vigente e registrar pedido de visita sem reserva automática.
-- **Situação:** execução e testes humanos da Fase 1 concluídos; encerramento documental depende da sincronização com o GitHub e da validação final do consultor.
+- **Situação:** execução, testes humanos e sincronização documental da Fase 1 concluídos em 2026-09-14; validação final do consultor pendente.
 
 ## Progresso da fase
 
 - **Tasks:** 16/16 (100%) — F1-T01 a F1-T16 concluídas. F1-T15: ficha vigente, envio humano rastreável, repetição sem segundo vínculo e 4 bloqueios aprovados manualmente. F1-T16: pedido com janela estruturada pendente, repetição sem segundo registro, texto livre em `Precisa esclarecer`, ausência de booking e cancelamento com motivo/histórico aprovados manualmente.
-- **Próxima etapa:** validar o conteúdo publicado no GitHub e obter a validação final do consultor antes de considerar a Fase 1 formalmente encerrada.
+- **Próxima etapa:** obter a validação final do consultor sobre o conteúdo publicado no GitHub antes de considerar a Fase 1 formalmente encerrada.
 
 ## Pendências de produção
 
