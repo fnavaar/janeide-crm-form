@@ -1,44 +1,25 @@
 # STATUS — Projeto Imobiliária Janeide Xavier LTDA
 
-> **Atualizado em:** 2026-09-14 · **Por:** Janeidinha
-> O painel do projeto: fase atual, progresso e o que precisa de atenção.
+> **Atualizado em:** 2026-09-14 · **Por:** Consultoria Adapta
 
 ## Onde estamos
 
-- **Fase atual:** Fase 1 — primeira vertical de atendimento · checklist completo em 2026-09-10 · validação final do consultor pendente
-- **Objetivo desta fase:** capturar lead com origem, organizar fila/contexto, consultar ficha vigente e registrar pedido de visita sem reserva automática.
-- **Situação:** execução, testes humanos e sincronização documental da Fase 1 concluídos em 2026-09-14; validação final do consultor pendente.
+- **Fase atual:** Fase 2 — catálogo e atendimento consultivo.
+- **Fase 1:** encerrada em 16/16 tasks; arquivo resumido em `05_entregas/fase-1/` e histórico completo preservado no Git.
+- **Progresso Fase 2:** 0/8 tasks.
+- **Única task elegível:** F2-T01 — fechar contrato da carga, fonte, vigência e política do catálogo.
 
-## Progresso da fase
+## Objetivo
 
-- **Tasks:** 16/16 (100%) — F1-T01 a F1-T16 concluídas. F1-T15: ficha vigente, envio humano rastreável, repetição sem segundo vínculo e 4 bloqueios aprovados manualmente. F1-T16: pedido com janela estruturada pendente, repetição sem segundo registro, texto livre em `Precisa esclarecer`, ausência de booking e cancelamento com motivo/histórico aprovados manualmente.
-- **Próxima etapa:** obter a validação final do consultor sobre o conteúdo publicado no GitHub antes de considerar a Fase 1 formalmente encerrada.
+Catálogo versionado, busca por código/bairro/tipo, ficha vigente, card com envio humano rastreável, histórico, próximo passo e handoff, sem presumir API Kenlo, agenda ou classificação autônoma.
 
-## Pendências de produção
+## Gates
 
-| Pendência | Responsável | Quando resolver |
-|---|---|---|
-| Trocar `META_APP_SECRET` pelo **App Secret real da Meta** no Skip Cloud (valor de teste já rotacionado em 2026-09-04) | Matheus Silva | **Antes de publicar** o projeto em produção |
+- F2-T01 exige autorização explícita e começa com fixture/contrato.
+- Somente uma task por vez; teste humano antes da próxima.
+- `META_APP_SECRET` real é gate separado de produção.
+- Skip 55154 não é acessível pela conta de auditoria; tasks devem produzir evidência exportável ou acesso autorizado.
 
-## Pendências de encerramento
+## Fora da fase
 
-| Pendência | Responsável | Quando resolver |
-|---|---|---|
-| Confirmar leitura e validação final do conteúdo da Fase 1 no GitHub | Consultor / Matheus Silva | Após a sincronização — **sincronização byte a byte concluída em 2026-09-14** (changelog.md corrigido no commit `4f73921`, blob SHA remoto == local, confirmado por leitura de volta) |
-
-## Entregas concluídas
-
-| Fase | O que foi entregue | Fechada em |
-|---|---|---|
-| Fase 1 | Checklist funcional completo: captura, fila, catálogo, pedido de visita, bordas e demonstrações ponta a ponta; validação final do consultor pendente | Aguardando validação final |
-
-## Próxima reunião
-
-A agendar — validação final do consultor com Matheus Silva e Janeide Xavier, após a sincronização do conteúdo local para o GitHub.
-
-**Evidências a revisar:**
-
-- F1-T01 a F1-T04: contratos de captura, painel, catálogo e pedido de visita confirmados.
-- F1-T05 a F1-T12: captura idempotente, fila, ficha, pedido sem reserva e cenários de borda verificados.
-- F1-T13 a F1-T16: demonstrações ponta a ponta, permissões, ficha vigente/envio rastreável e handoff sem booking aprovados manualmente.
-- Pendência separada de produção: substituir o `META_APP_SECRET` de teste pelo valor real da Meta antes de publicar em produção.
+API Kenlo não comprovada, envio automático de WhatsApp, agenda/reserva, classificação autônoma, no-show e go-live.
