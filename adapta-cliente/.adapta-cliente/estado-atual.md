@@ -3,11 +3,11 @@
 - task_id: F2-T01
 - champion: Matheus Silva
 - spec: 04_fase-atual/specs/spec-fase-2-001-catalogo-carga-vigencia.md
-- etapa: aguardando_autorizacao
-- autorizacao_implementacao: ausente
+- etapa: aguardando_teste_humano
+- autorizacao_implementacao: confirmada + 2026-09-15T15:12:00-03:00 + "B2-01, B2-02 e B2-04 fechadas; pode formalizar o contrato e seguir com o plano de implementação"
 - teste_humano: pendente
-- verificacao_automatica: pacote documental F2 validado — 4 SPECs, 8 tasks, CA-2-001..024 = 24/24; espelho local realinhado a origin/main (3546436) e 7/7 arquivos conferem com handoff-manifest.json (sha256)
+- verificacao_automatica: passou — validador da fixture sintética passou; 5 linhas (2 aceitas, 1 pendente, 2 recusadas); repetição manteve content_hash/catalog_version/totais; Python/JSON/diff/scan direcionado sem falhas; promotion_status validation_only
 - aprendizado: pendente
-- ultima_acao: análise profunda de F2-T01 entregue em 2026-09-15; espelho local realinhado após publicação da Fase 2 (PRs #1 e #2 mergeados em 2026-09-14)
-- proxima_acao: aguardar autorização explícita para implementar F2-T01
-- atualizado_em: 2026-09-15T10:12:08-03:00
+- ultima_acao: contrato, fixture, validador, recibo e relatório da F2-T01 criados; STATUS/changelog atualizados; nenhum catálogo real promovido
+- proxima_acao: executar teste humano do contrato/fixture/relatório da F2-T01 e informar se funcionou
+- atualizado_em: 2026-09-15T15:24:16-03:00

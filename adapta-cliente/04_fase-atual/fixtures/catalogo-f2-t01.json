@@ -1,0 +1,154 @@
+{
+  "schema": "catalog-import-fixture/v1",
+  "fixture_id": "catalog-f2-t01-synthetic-001",
+  "source": {
+    "system": "Kenlo Mob",
+    "file_name": "kenlo-export-2026-09-15.xls",
+    "file_format": "xls",
+    "column_count": 29,
+    "cutoff_date": "2026-09-15",
+    "frequency": "weekly",
+    "exported_by": "matheus",
+    "loaded_by": "matheus",
+    "loaded_at": "2026-09-15T15:14:00-03:00",
+    "retention_years": 1,
+    "media_allowlist": ["cdn.kenlo.example"]
+  },
+  "known_source_headers": [
+    "R$ Locação",
+    "R$ Cond.",
+    "R$ Iptu",
+    "Data de atualização",
+    "Captador(es)",
+    "Promotor(es)",
+    "Indicador(es)"
+  ],
+  "rows": [
+    {
+      "case": "valid_zero_values_no_media",
+      "source_row": 2,
+      "raw": {
+        "Código": "F2-T01-001",
+        "Título": "Apartamento sintético Centro",
+        "Status": "active",
+        "R$ Locação": 0,
+        "R$ Cond.": 0,
+        "R$ Iptu": 0,
+        "Data de atualização": "2026-09-10",
+        "Captador(es)": "captador-sintetico-001",
+        "Promotor(es)": "fora-do-catalogo",
+        "Indicador(es)": "fora-do-catalogo"
+      },
+      "normalized": {
+        "property_code": "F2-T01-001",
+        "title": "Apartamento sintético Centro",
+        "availability_status": "active",
+        "key_attributes": ["2 quartos", "sem dado real"],
+        "media_urls": [],
+        "source_ref": "kenlo-export-2026-09-15.xls#linha=2",
+        "valid_until": "2026-10-15"
+      }
+    },
+    {
+      "case": "stale_review_but_accepted",
+      "source_row": 3,
+      "raw": {
+        "Código": "F2-T01-002",
+        "Título": "Casa sintética Jardim",
+        "Status": "active",
+        "R$ Locação": 3500,
+        "R$ Cond.": 450,
+        "R$ Iptu": 120,
+        "Data de atualização": "2025-09-14",
+        "Captador(es)": "captador-sintetico-002",
+        "Promotor(es)": "fora-do-catalogo",
+        "Indicador(es)": "fora-do-catalogo"
+      },
+      "normalized": {
+        "property_code": "F2-T01-002",
+        "title": "Casa sintética Jardim",
+        "availability_status": "active",
+        "key_attributes": ["3 quartos", "sem dado real"],
+        "media_urls": [],
+        "source_ref": "kenlo-export-2026-09-15.xls#linha=3",
+        "valid_until": "2026-10-15"
+      }
+    },
+    {
+      "case": "missing_required_property_code",
+      "source_row": 4,
+      "raw": {
+        "Código": "",
+        "Título": "Imóvel sintético sem código",
+        "Status": "active",
+        "R$ Locação": 2100,
+        "R$ Cond.": 0,
+        "R$ Iptu": 0,
+        "Data de atualização": "2026-09-12",
+        "Captador(es)": "captador-sintetico-003",
+        "Promotor(es)": "fora-do-catalogo",
+        "Indicador(es)": "fora-do-catalogo"
+      },
+      "normalized": {
+        "property_code": "",
+        "title": "Imóvel sintético sem código",
+        "availability_status": "active",
+        "key_attributes": [],
+        "media_urls": [],
+        "source_ref": "kenlo-export-2026-09-15.xls#linha=4",
+        "valid_until": "2026-10-15"
+      }
+    },
+    {
+      "case": "expired_valid_until",
+      "source_row": 5,
+      "raw": {
+        "Código": "F2-T01-004",
+        "Título": "Imóvel sintético vencido",
+        "Status": "active",
+        "R$ Locação": 1800,
+        "R$ Cond.": 0,
+        "R$ Iptu": 0,
+        "Data de atualização": "2026-09-01",
+        "Captador(es)": "captador-sintetico-004",
+        "Promotor(es)": "fora-do-catalogo",
+        "Indicador(es)": "fora-do-catalogo"
+      },
+      "normalized": {
+        "property_code": "F2-T01-004",
+        "title": "Imóvel sintético vencido",
+        "availability_status": "active",
+        "key_attributes": [],
+        "media_urls": [],
+        "source_ref": "kenlo-export-2026-09-15.xls#linha=5",
+        "valid_until": "2026-08-31"
+      }
+    },
+    {
+      "case": "unsafe_manual_media_pending",
+      "source_row": 6,
+      "raw": {
+        "Código": "F2-T01-005",
+        "Título": "Imóvel sintético com mídia insegura",
+        "Status": "active",
+        "R$ Locação": 2500,
+        "R$ Cond.": 0,
+        "R$ Iptu": 0,
+        "Data de atualização": "2026-09-10",
+        "Captador(es)": "captador-sintetico-005",
+        "Promotor(es)": "fora-do-catalogo",
+        "Indicador(es)": "fora-do-catalogo"
+      },
+      "normalized": {
+        "property_code": "F2-T01-005",
+        "title": "Imóvel sintético com mídia insegura",
+        "availability_status": "active",
+        "key_attributes": [],
+        "media_urls": ["http://untrusted.invalid/imovel-005.jpg"],
+        "media_source": "manual_skip_enrichment",
+        "source_ref": "kenlo-export-2026-09-15.xls#linha=6",
+        "valid_until": "2026-10-15"
+      }
+    }
+  ]
+}
