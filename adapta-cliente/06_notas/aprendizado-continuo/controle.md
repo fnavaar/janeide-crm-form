@@ -26,3 +26,4 @@
 - 2026-09-22T10:27-03:00 · task F2-T01 · capturado · `AP-2026-09-22-1027-drift-mcp-github-arquivos-longos.md` — conector MCP GitHub introduz drift de transcrição em arquivos longos; blob local validado deve ser canônico, com leitura de volta por SHA; divergência de bytes não bloqueia a validação técnica quando aprovada pelo cliente.
 - 2026-09-22T10:32-03:00 · task F2-T01 · corrigido · teste humano e decisões B2-01/B2-02/B2-04 atribuídos a Matheus Silva; F2-T01 fechada, F2-T02 não iniciada.
 - 2026-09-22T10:44-03:00 · task F2-T01 · corrigido · confirmação do usuário: Matheus Silva é o autor das decisões B2-01/B2-02/B2-04 e do teste humano; registros de fechamento ajustados sem alterar o resultado técnico.
+- 2026-09-22T11:24-03:00 · task F2-T02 · capturado · conta técnica de auditoria provisionada via secret + migration idempotente no Skip 55154; senha não versionada; separar capacidade técnica de autoridade de negócio antes de promover/rollback.

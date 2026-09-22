@@ -4,10 +4,10 @@
 - champion: Matheus Silva
 - spec: 04_fase-atual/specs/spec-fase-2-001-catalogo-carga-vigencia.md
 - etapa: aguardando_autorizacao
-- autorizacao_implementacao: ausente — autorização recebida somente para analisar a F2-T02 em 2026-09-22T11:06:00-03:00; implementação proibida até o fechamento das decisões de negócio
+- autorizacao_implementacao: confirmada somente para o recorte B2-03 em 2026-09-22T11:17:00-03:00 + "criar conta de auditoria/agente dedicada no projeto Skip 55154 e documentar o escopo; seguir para a próxima decisão; não implementar a carga nesta etapa"; autorização da carga completa ausente
 - teste_humano: pendente
-- verificacao_automatica: pendente — F2-T02 ainda não implementada; baseline da F2-T01 permanece PASS, sem promoção real
-- aprendizado: pendente
-- ultima_acao: análise da F2-T02 concluída sem implementação; plano preparado; B2-03 (acesso independente ao Skip ou evidência exportável) identificado como primeira decisão; papel autorizador de promoção/correção e escopo da prova real permanecem para fechamento sequencial
-- proxima_acao: fechar a decisão B2-03 antes de qualquer implementação
-- atualizado_em: 2026-09-22T11:06:00-03:00
+- verificacao_automatica: passou no recorte B2-03 — Skip 55154 versão 0.0.61 (`8d659d9`), migration 0024 aplicada, QA setup/static/build/integrations/test PASS, regra `properties` create/update/delete restrita a `role=admin`; carga F2-T02 não implementada
+- aprendizado: capturado: controle atualizado com recorte de provisionamento da conta técnica
+- ultima_acao: conta de auditoria técnica provisionada por secret/migration e contrato F2-T02 documentado; nenhum catálogo real, promoção, correção de lote ou rollback executado
+- proxima_acao: fechar a decisão do papel/conta autorizada a promover, corrigir e executar rollback
+- atualizado_em: 2026-09-22T11:24:00-03:00
