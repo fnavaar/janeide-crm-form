@@ -1,12 +1,12 @@
 # Fase 2 — Catálogo e atendimento consultivo
 
-**Status:** 0/8; somente F2-T01 elegível; autorização explícita e teste humano obrigatórios entre tasks.
+**Status:** 1/8; F2-T01 concluída em 2026-09-22; F2-T02 permanece bloqueada até autorização explícita e resolução/prova de B2-03.
 
 ## Tasks
 
 | ID | Leva | Task | Dono | SPEC | Critério | Subseção exata | Recorte da prova | Evidência esperada | Pré-condições | Ponto de parada/estado final | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| F2-T01 | 1 | Fechar contrato da carga, fonte, vigência e política do catálogo | Champion | SPEC-2-001 | CA-2-001 a CA-2-003 | Contexto e decisões fechadas; Dados e integrações; Critérios de aceite | validar fixture e registrar B2-01/B2-02/B2-04 ou decisões fechadas | contrato da carga, fixture, relatório de validação e aceite | autorização explícita; sem dado real | catálogo real não ingerido; bloqueios permanecem visíveis | ELEGÍVEL |
+| F2-T01 | 1 | Fechar contrato da carga, fonte, vigência e política do catálogo | Champion | SPEC-2-001 | CA-2-001 a CA-2-003 | Contexto e decisões fechadas; Dados e integrações; Critérios de aceite | validar fixture e registrar B2-01/B2-02/B2-04 ou decisões fechadas | contrato da carga, fixture, relatório de validação e aceite | autorização explícita; sem dado real | catálogo real não ingerido; bloqueios permanecem visíveis | CONCLUÍDA (2026-09-22) |
 | F2-T02 | 2 | Implementar carga versionada, idempotência e rollback lógico | Ethos | SPEC-2-001 | CA-2-004 a CA-2-006 | Fluxo e recuperação; TDD da SPEC; Handoff e operação | GREEN/REGRESSÃO com repetição, falha parcial e permissão | recibos, diff de versão, 403/negação e rollback | F2-T01 aceita; B2-03 resolvido por acesso ou prova exportável | versão anterior ativa; nenhum lote parcial promovido | BLOQUEADA |
 | F2-T03 | 3 | Implementar busca por código, bairro e tipo sobre versão ativa | Ethos | SPEC-2-002 | CA-2-007 a CA-2-009 | Dados e regras; Fluxo e recuperação; Critérios de aceite | GREEN com tabela esperado×obtido da fixture versionada | resultados, fichas, source_ref e vigência | F2-T02 aceita; contrato de normalização derivado da amostra | consulta F1 por código permanece funcional | BLOQUEADA |
 | F2-T04 | 4 | Provar bloqueios, estados vazios, indisponibilidade e permissão da busca | Ethos | SPEC-2-002 | CA-2-010 a CA-2-012 | Cenários; TDD da SPEC; Handoff e operação | REGRESSÃO com inativo, vencido, incompleto, zero, indisponível e acesso negado | relatório de cenários, capturas e logs sanitizados | F2-T03 aceita | nenhum item inválido apresentado como ativo | BLOQUEADA |

@@ -24,3 +24,4 @@
 
 - 2026-09-22T09:15-03:00 · task F2-T01 · capturado · `AP-2026-09-22-0915-comando-reproduzivel.md` — executar literalmente o comando multiline publicado; não reconstruir por transformação de shell.
 - 2026-09-22T10:27-03:00 · task F2-T01 · capturado · `AP-2026-09-22-1027-drift-mcp-github-arquivos-longos.md` — conector MCP GitHub introduz drift de transcrição em arquivos longos; blob local validado deve ser canônico, com leitura de volta por SHA; divergência de bytes não bloqueia a validação técnica quando aprovada pelo cliente.
+- 2026-09-22T10:32-03:00 · task F2-T01 · concluído · teste humano aprovado por Janeide para B2-01/B2-02/B2-04; validação automática reexecutada com 8 checagens PASS; F2-T01 fechada, F2-T02 não iniciada.
