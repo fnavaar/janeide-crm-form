@@ -23,3 +23,4 @@
 - 2026-09-10T01:15-03:00 · task F1-T16 · capturado · `AP-2026-09-10-pedido-sem-booking.md` — cinco cenários confirmaram pedido pendente, dedupe, esclarecimento, ausência de booking e cancelamento com histórico.
 
 - 2026-09-22T09:15-03:00 · task F2-T01 · capturado · `AP-2026-09-22-0915-comando-reproduzivel.md` — executar literalmente o comando multiline publicado; não reconstruir por transformação de shell.
+- 2026-09-22T10:27-03:00 · task F2-T01 · capturado · `AP-2026-09-22-1027-drift-mcp-github-arquivos-longos.md` — conector MCP GitHub introduz drift de transcrição em arquivos longos; blob local validado deve ser canônico, com leitura de volta por SHA; divergência de bytes não bloqueia a validação técnica quando aprovada pelo cliente.
