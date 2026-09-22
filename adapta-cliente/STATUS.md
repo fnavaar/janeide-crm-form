@@ -24,7 +24,7 @@ Catálogo versionado, busca por código/bairro/tipo, ficha vigente, card com env
 - **B2-01:** exportação manual Kenlo em `.xls` com 29 colunas; zero monetário significa não preenchido; mídia não vem no arquivo e vira pendência de cadastro manual.
 - **B2-02:** corte = data da exportação; frequência semanal; Matheus responsável pela exportação/carga; mais de seis meses sem atualização gera revisão, sem recusar o imóvel por isso.
 - **B2-04:** retenção de um ano; log append-only por lote; histórico preservado; Promotor(es)/Indicador(es) fora do catálogo; Captador(es) apenas como campo interno de rastreabilidade.
-- **Changelog canônico:** a cópia local `adapta-cliente/changelog.md` permanece canônica; após a correção de autoria do fechamento da F2-T01, o blob local atual é `0069cda9c795c7a0f568902fa9b9e2d3ce3eda21`. O remoto pode continuar divergente em bytes porque o conector MCP do GitHub introduz drift de transcrição em arquivos longos. É limitação conhecida de publicação, não erro de conteúdo.
+- **Changelog canônico:** a cópia local `adapta-cliente/changelog.md` permanece canônica; após o registro de B2-03 e a correção de autoria do fechamento da F2-T01, o blob local atual é `d236546f2377c6541a37a301be470c7ae944490c`. O remoto pode continuar divergente em bytes porque o conector MCP do GitHub introduz drift de transcrição em arquivos longos. É limitação conhecida de publicação, não erro de conteúdo.
 - A divergência de bytes do changelog não bloqueia a validação técnica; o drift está registrado no aprendizado contínuo.
 
 ## Evidência F2-T01
