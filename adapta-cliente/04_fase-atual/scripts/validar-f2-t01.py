@@ -331,7 +331,7 @@ def render_report(receipt: dict, checks: list[str], fixture_path: str) -> str:
         "",
         "```sh",
         "python3 adapta-cliente/04_fase-atual/scripts/validar-f2-t01.py \\",
-        "  --fixture adapta-cliente/04-fase-atual/fixtures/catalogo-f2-t01.json \\",
+        "  --fixture adapta-cliente/04_fase-atual/fixtures/catalogo-f2-t01.json \\",
         "  --receipt adapta-cliente/06_notas/fase-2/recibo-f2-t01.json \\",
         "  --report adapta-cliente/06_notas/fase-2/relatorio-f2-t01.md",
         "```",
