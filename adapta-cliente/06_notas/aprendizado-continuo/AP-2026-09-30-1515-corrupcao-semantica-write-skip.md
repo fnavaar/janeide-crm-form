@@ -1,0 +1,6 @@
+# AP-2026-09-30-1515 — corrupção semântica no write do conector Skip
+
+- **Task:** F2-T03 (2026-09-30)
+- **Evidência:** em uma mesma sessão, `skip_file_write` corrompeu 2 arquivos de formas diferentes: (1) hook `catalogo_buscar.js` veio com default `String(q.bairro || 'CENTRO')` que NÃO estava no conteúdo enviado — injeção semântica que mudaria o comportamento (toda busca sem bairro filtraria para Centro); (2) página `BuscaF2T03.tsx` veio com tags JSX quebradas (`</ Apartamento>`, `</Card card_version>`, texto solto `campos:`) — quebra de build. Ambos detectados SOMENTE pela leitura de volta obrigatória (AP-2026-09-07-1727).
+- **Padrão:** a corrupção do conector não é só truncamento (AP-2026-09-14) — pode ser injeção de conteúdo plausível e contextual. Uma injeção semântica pode passar no QA (build compila) e só falhar no teste humano, tarde.
+- **Orientação reutilizável:** após todo `skip_file_write`, ler de volta e CONFRONTAR o conteúdo com o pretendido (diff mental guiado por pontos críticos: defaults, condições, limites de bloco JSX/JSON), não apenas confirmar que o arquivo existe ou compila. Em hooks, re-ler campos de decisão (defaults, guards, dicts) linha a linha. Se divergir, corrigir com `skip_file_patch` (bloco exato) e re-ler.

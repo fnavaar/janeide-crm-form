@@ -32,3 +32,5 @@
 - 2026-09-28T16:19:55-03:00 · task F2-T02 · capturado · `AP-2026-09-28-1620-falsos-zero-pocketbase.md` — PocketBase rejeitou booleano `false`/contagens `0` em campos `required`; erro secundário do recibo mascarou a exceção original, exigir captura/log sanitizado da causa.
 
 - 2026-09-30T11:20-03:00 · task F2-T02 · capturado · `AP-2026-09-30-1120-ui-duplicada-permissao-backend.md` — conferir duplicação/visibilidade da UI por papel separadamente do 403 server-side (validação humana do cartão único aprovada no fechamento).
+
+- 2026-09-30T15:15-03:00 · task F2-T03 · capturado · `AP-2026-09-30-1515-corrupcao-semantica-write-skip.md` — corrupção do write no conector Skip pode ser semântica (default `CENTRO` injetado no hook) e não só truncamento; ler de volta e confrontar pontos críticos (defaults, guards, dicts) antes de build/teste humano.
