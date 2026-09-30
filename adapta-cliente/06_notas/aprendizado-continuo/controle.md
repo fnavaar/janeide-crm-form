@@ -15,7 +15,7 @@
 - 2026-09-04T12:53-03:00 · task F1-T09 · capturado · `AP-2026-09-04-1200-hmac-gerado-com-python.md` — assinatura HMAC gerada com Python (openssl do Mac/LibreSSL falhava); secret de teste rotaciona depois.
 - 2026-09-07T17:27-03:00 · task F1-T10 · capturado · `AP-2026-09-07-1727-writes-skip-validar-com-listagem-e-write-back.md` — validar write com leitura de volta/listagem; migration idempotente pode aplicar sem efeito (secret ausente, lookup por chave canônica que não existe); diagnosticar "não apareceu" checando bundle → resposta do endpoint → cache.
 - 2026-09-07T18:15-03:00 · task F1-T11 · capturado · `AP-2026-09-07-1815-campo-json-em-goja-nao-e-array-js.md` — campo JSON em goja pode voltar como array de BYTES (prova: 84/142/78 = bytes exatos do JSON.stringify); normalizar com detecção de bytes + toList conservador; contagens absurdas idênticas entre deploys = formato do dado, não cache; provar lógica em Node antes de re-teste humano.
-- 2026-09-07T19:07-03:00 · task F1-T11 · capturado · convenções PocketBase number e requestInfo: campo number vazio normaliza para 0; usar `price > 0` como informado na Fase 1; corpo JSON da rota via `e.requestInfo().body`; preço "consulte" requer revisão futura do modelo.
+- 2026-09-07T19:07-03:00 · task F1-T11 · capturado · convenções PocketBase number e requestInfo: campo number vazio normaliza para 0; usar `price > 0` como informado na Fase 1; corpo da rota via `e.requestInfo().body`; preço “consulte” exige revisão futura do modelo.
 - 2026-09-08T23:45-03:00 · task F1-T12 · capturado · idempotência de cancelamento deve ser comprovada no endpoint autenticado; botão oculto na UI após cancelamento não substitui a prova de segunda chamada; verificar resposta idempotente e invariantes do registro.
 - 2026-09-09T00:15-03:00 · task F1-T13 · capturado · HMAC de demonstração com secret temporário conhecido permitiu provar criação nova e duplicidade sem expor segredo; rotação do secret deve ser gate antes de prosseguir.
 - 2026-09-10T00:42-03:00 · task F1-T14 · capturado · frontend de autorização deve distinguir 403 de lista vazia; mensagem explícita evita interpretar bloqueio como ausência de eventos.
@@ -30,3 +30,5 @@
 - 2026-09-28T12:07-03:00 · F2-T02 · decisão confirmada · autoridade comercial expressa como papel Admin, independente do ocupante; conta de auditoria limitada ao Skip 55154 e deve ser removida/desativada antes de produção; SDR/Corretor somente leitura. O conjunto de dados da prova permanece pendente.
 
 - 2026-09-28T16:19:55-03:00 · task F2-T02 · capturado · `AP-2026-09-28-1620-falsos-zero-pocketbase.md` — PocketBase rejeitou booleano `false`/contagens `0` em campos `required`; erro secundário do recibo mascarou a exceção original, exigir captura/log sanitizado da causa.
+
+- 2026-09-30T11:20-03:00 · task F2-T02 · candidato · `AP-2026-09-30-1120-ui-duplicada-permissao-backend.md` — conferir duplicação/visibilidade da UI por papel separadamente do 403 server-side.

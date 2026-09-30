@@ -4,10 +4,10 @@
 - champion: Matheus Silva
 - spec: 04_fase-atual/specs/spec-fase-2-001-catalogo-carga-vigencia.md
 - etapa: aguardando_teste_humano
-- autorizacao_implementacao: confirmada por Janeide em 2026-09-28 + "Autorizo a implementação da F2-T02"; fixture sintética apenas; Skip 55154 não publicado; V1→V2 sintética alterada→rollback V2→V1; Admin promove/corrige/rollback; SDR/Corretor somente leitura; `.xls` real fora; F2-T03 não iniciar
-- teste_humano: pendente — provas runtime automatizadas PASS; Janeide ainda precisa validar UI e regressão F1 no preview
-- verificacao_automatica: QA Skip 0.0.75 PASS (setup/static/build/integrations/test); migrations 0028/0029 aplicadas; suíte sintética 19/19 PASS: import/hash/totais V1, idempotência, duplicata por conteúdo, promoção V1, 2 itens ativos, falha parcial atômica sem troca de ativo, V2 distinta, promoção V2, rollback V2→V1, SDR/Corretor login/leitura/403; V1 ativa ao final
-- aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-09-28-1620-falsos-zero-pocketbase.md
-- ultima_acao: versão Skip 0.0.75 criada; rotas diagnósticas retornam 404; secrets temporários removidos; projeto 55154 continua não publicado
-- proxima_acao: Janeide executar o roteiro humano atualizado no preview, validar interface e regressão F1; não iniciar F2-T03
-- atualizado_em: 2026-09-28T16:19:55-03:00
+- autorizacao_implementacao: confirmada por Janeide em 2026-09-28 para F2-T02; em 2026-09-30 autorizou corrigir o cartão duplicado e executar QA/build, aceitando a pendência antiga `.skip.config.json` no finalize de desenvolvimento; publicar não autorizado
+- teste_humano: pendente — A2 e A4 aprovados; SDR recebeu HTTP 403 esperado no 0.0.75, mas reportou dois cartões duplicados; correção UI aplicada em 0.0.76; próximo é validar como Corretor que há um único cartão e o POST retorna 403; depois C e D pendentes
+- verificacao_automatica: Skip QA 0.0.76 (`d69136f`) PASS em setup/static/build/integrations/test; checagem estática confirmou um cartão e um botão renderizados para SDR/Corretor; suíte runtime anterior 19/19 PASS; projeto 55154 não publicado. O status ainda lista `.skip.config.json` como pendingChanges e lastDevBuildRef d69136f
+- aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-09-30-1120-ui-duplicada-permissao-backend.md
+- ultima_acao: removido somente o segundo cartão duplicado de `src/pages/CatalogoF2T02.tsx`; QA/build 0.0.76 PASS; `isPublished=false` confirmado
+- proxima_acao: Janeide entrar como Corretor no preview F2, conferir V1/2 itens/um único cartão e clicar uma vez no botão (esperado HTTP 403)
+- atualizado_em: 2026-09-30T11:38:02-03:00

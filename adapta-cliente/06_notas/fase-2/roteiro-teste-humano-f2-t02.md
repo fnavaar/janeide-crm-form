@@ -1,8 +1,9 @@
 # Roteiro humano atualizado — F2-T02
 
-**Ambiente:** Skip 55154, preview não publicado: https://janeide-teste-fase-1-ba587--preview.goskip.app/f2-t02/catalogo  
-**Painel F1:** https://janeide-teste-fase-1-ba587--preview.goskip.app/  
-**Estado inicial já preparado:** V1 (`cat-20260915-fac83f9cf10a`) ativa; V2 sintética existe no histórico e foi revertida; somente dados sintéticos.  
+**Ambiente:** Skip 55154, preview não publicado: https://janeide-teste-fase-1-ba587--preview.goskip.app/f2-t02/catalogo
+**Painel F1:** https://janeide-teste-fase-1-ba587--preview.goskip.app/
+**Preview atual:** versão 0.0.76 (`d69136f`), QA PASS, não publicado.
+**Estado inicial já preparado:** V1 (`cat-20260915-fac83f9cf10a`) ativa; V2 sintética existe no histórico e foi revertida; somente dados sintéticos.
 **Não usar:** produção, `.xls` real, dados reais, WhatsApp real. Não iniciar F2-T03.
 
 ## A — Revisão do catálogo como Admin de teste
@@ -19,12 +20,14 @@
 
 ## B — Leitura e bloqueio para SDR e Corretor
 
+**Checkpoint 2026-09-30:** A2 e A4 aprovados. O teste SDR em 0.0.75 retornou HTTP 403 esperado; dois cartões quase idênticos foram encontrados. Janeide confirmou o clique acidental que criou apenas um recibo/operação append-only `duplicate` para V2; a chamada de falha parcial foi rejeitada com HTTP 400 antes da gravação. A V1 permaneceu ativa e não houve corrupção. A duplicação visual foi corrigida em 0.0.76 (QA PASS); continuar agora pelo passo 7 com o Corretor e verificar que há apenas um cartão.
+
 5. Saia e entre com a conta SDR de teste; atualize o painel.
    - Esperado: lê V1 e os 2 itens ativos; não vê controles administrativos/histórico.
 6. Use **Tentar promover (esperado 403)**, caso esteja disponível na tela.
    - Esperado: HTTP 403 e V1 continua ativa.
-7. Repita os passos 5–6 com a conta Corretor de teste.
-   - Esperado: leitura dos mesmos 2 itens, tentativa retorna HTTP 403, sem mudança no ativo.
+7. Entre com a conta Corretor de teste e abra esta rota no preview 0.0.76.
+   - Esperado: leitura dos mesmos 2 itens; aparece uma única seção “Teste do bloqueio de escrita — CORRETOR” e um botão “Tentar promover (esperado 403)”. Clique uma vez. Esperado: HTTP 403 e V1 continua ativa, sem mudança em versões, snapshots ou recibos.
 
 ## C — Conferência de rollback sem repetir mutações
 
