@@ -6,8 +6,8 @@
 
 - **Fase atual:** Fase 2 — catálogo e atendimento consultivo.
 - **Fase 1:** encerrada em 16/16 tasks; arquivo resumido em `05_entregas/fase-1/` e histórico completo preservado no Git.
-- **Progresso Fase 2:** **2/8 tasks concluídas (25%)**; F2-T01 e F2-T02 concluídas.
-- **Task ativa:** nenhuma — F2-T02 concluída em 2026-09-30; F2-T03 não inicia sem autorização explícita de Janeide.
+- **Progresso Fase 2:** **3/8 tasks concluídas (37,5%)**; F2-T01, F2-T02 e F2-T03 concluídas.
+- **Task ativa:** nenhuma — F2-T03 concluída em 2026-09-30; F2-T04 não inicia sem autorização explícita de Janeide.
 
 ## Objetivo
 
@@ -17,6 +17,7 @@ Catálogo versionado, busca por código/bairro/tipo, ficha vigente, card com env
 
 - **F2-T01 — concluída (2026-09-22):** contrato da carga formalizado; fixture sintética, validador, recibo e relatório aprovados. B2-01, B2-02 e B2-04 confirmados por Matheus Silva; nenhum catálogo real promovido.
 - **F2-T02 — concluída (2026-09-30):** teste humano A–D aprovado por Janeide Lima Xavier. A2/A4: V1 `cat-20260915-fac83f9cf10a` ativa com 2 itens; repetição `duplicate` com hash intacto. SDR e Corretor bloqueados com HTTP 403 (0.0.75 e 0.0.76; cartão único após correção da duplicidade de UI). Passo 8: V1 ativa, V2 `rolled_back`, recibos intactos. Etapa D: ficha `CASAS-TURIM-001` 200; envio `duplicate` 200 (2× — vínculos prévios F1-T13/F1-T15); criação 201 validada historicamente na F1-T15. QA Skip 0.0.78 (`a0282aa`) 5/5 PASS; suíte runtime 19/19 PASS (28/09). Projeto 55154 não publicado. Pendências aceitas conscientemente por Janeide: conta Auditoria F2-T02 removida/desativada antes de produção; `.skip.config.json` pendência de metadado do editor; `META_APP_SECRET` real é gate separado de produção; preço "consulte" vs ausente é dívida deliberada documentada. F2-T03 não inicia sem autorização explícita.
+- **F2-T03 — concluída (2026-09-30):** autorização de implementação dada por Janeide após análise (endpoint `GET /backend/v1/catalogo/buscar`, filtros combináveis, leitura admin/sdr/corretor, 403 para outros papéis, TDD e roteiro das 6 consultas); amostra atual (2 itens) aceita sem ampliação, com recomendação técnica registrada. Implementação: hook `catalogo_buscar.js` (versão ativa → itens `accepted`/`active_candidate`, dicionário de normalização derivado da amostra F2-T01 documentado no código, ordenação determinística RN-216, estado vazio honesto CA-2-009 com `empty_state`, 403 para papel sem leitura), página `BuscaF2T03.tsx` com 6 botões de consulta + filtros livres, rota `/f2-t03/busca`. QA Skip 0.0.79 (`01feaca`) 5/5 PASS; endpoint exige auth (401 sem token confirmado); rota 200. Teste humano aprovado por Janeide (8/8: código exato, bairro Centro, tipo Casa, Jardim+Casa, Centro+Casa vazio, bairro desconhecido vazio, código manual, normalização maiúsculas). Dois erros de escrita no conector Skip detectados por leitura de volta e corrigidos antes do build (default indevido `CENTRO`; tags JSX corrompidas). Consulta F1 por código permanece funcional. Provas autenticadas automatizadas seguem bloqueadas por credenciais ilegíveis (regra de secrets) — cobertas pelo roteiro humano; 403 por papel na busca é recorte da F2-T04 (CA-2-012). F2-T04 não inicia sem autorização explícita.
 - Somente uma task por vez; autorização e teste humano antes das transições.
 - `META_APP_SECRET` real é gate separado de produção.
 - Projeto Skip 55154 é o ambiente de teste não publicado; a conta técnica dedicada foi provisionada para prova independente, sem acesso a produção e sem carga de dados reais de cliente.

@@ -96,7 +96,7 @@ O SDR pesquisa uma amostra aprovada por código, bairro ou tipo e recebe resulta
 
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
 |---|---|---|---|---|---|---|---|---|
-| F2-T03 | Implementar busca por código, bairro e tipo sobre versão ativa | Ethos | SPEC-2-002 | CA-2-007 a CA-2-009 | GREEN com tabela esperado×obtido da fixture versionada | resultados, fichas, source_ref e vigência | F2-T02 aceita; contrato de normalização derivado da amostra | BLOQUEADA |
+| F2-T03 | Implementar busca por código, bairro e tipo sobre versão ativa | Ethos | SPEC-2-002 | CA-2-007 a CA-2-009 | GREEN com tabela esperado×obtido da fixture versionada | resultados, fichas, source_ref e vigência | F2-T02 aceita; contrato de normalização derivado da amostra | CONCLUÍDA (2026-09-30) |
 | F2-T04 | Provar bloqueios, estados vazios, indisponibilidade e permissão da busca | Ethos | SPEC-2-002 | CA-2-010 a CA-2-012 | REGRESSÃO com inativo, vencido, incompleto, zero, indisponível e acesso negado | relatório de cenários, capturas e logs sanitizados | F2-T03 aceita | BLOQUEADA |
 
 ## Emendas
