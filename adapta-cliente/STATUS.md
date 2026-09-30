@@ -6,8 +6,8 @@
 
 - **Fase atual:** Fase 2 — catálogo e atendimento consultivo.
 - **Fase 1:** encerrada em 16/16 tasks; arquivo resumido em `05_entregas/fase-1/` e histórico completo preservado no Git.
-- **Progresso Fase 2:** **1/8 tasks concluídas**; F2-T01 concluída e F2-T02 aguardando validação humana após correção.
-- **Task ativa:** F2-T02 — carga versionada, idempotência, promoção controlada e rollback lógico no Skip 55154; correção da duplicidade visual aplicada; continuar teste humano pelo Corretor; não iniciar F2-T03.
+- **Progresso Fase 2:** **2/8 tasks concluídas (25%)**; F2-T01 e F2-T02 concluídas.
+- **Task ativa:** nenhuma — F2-T02 concluída em 2026-09-30; F2-T03 não inicia sem autorização explícita de Janeide.
 
 ## Objetivo
 
@@ -16,7 +16,7 @@ Catálogo versionado, busca por código/bairro/tipo, ficha vigente, card com env
 ## Gates
 
 - **F2-T01 — concluída (2026-09-22):** contrato da carga formalizado; fixture sintética, validador, recibo e relatório aprovados. B2-01, B2-02 e B2-04 confirmados por Matheus Silva; nenhum catálogo real promovido.
-- **F2-T02 — aguardando teste humano:** correção da duplicidade visual identificada no teste SDR: `src/pages/CatalogoF2T02.tsx` tinha dois cartões de bloqueio sob a mesma condição de papel; o segundo foi removido e o primeiro botão foi mantido. O SDR já obteve HTTP 403 esperado no build 0.0.75; A2 e A4 aprovados. QA/build Skip 0.0.76 (`d69136f`) PASS em setup/static/build/integrations/test; runtime backend 19/19 PASS previamente. Projeto 55154 continua não publicado. Próximo teste humano: Corretor deve ler V1 e 2 itens, ver apenas um cartão/botão e obter HTTP 403; depois conferir C e executar D. Não iniciar F2-T03. Janeide aceitou a pendência antiga `.skip.config.json` para o finalize; depois do QA, o Skip ainda a lista em `pendingChanges` e o arquivo atual registra `lastDevBuildRef: d69136f`; origem antiga é hipótese aceita para esta decisão, não diff confirmado.
+- **F2-T02 — concluída (2026-09-30):** teste humano A–D aprovado por Janeide Lima Xavier. A2/A4: V1 `cat-20260915-fac83f9cf10a` ativa com 2 itens; repetição `duplicate` com hash intacto. SDR e Corretor bloqueados com HTTP 403 (0.0.75 e 0.0.76; cartão único após correção da duplicidade de UI). Passo 8: V1 ativa, V2 `rolled_back`, recibos intactos. Etapa D: ficha `CASAS-TURIM-001` 200; envio `duplicate` 200 (2× — vínculos prévios F1-T13/F1-T15); criação 201 validada historicamente na F1-T15. QA Skip 0.0.78 (`a0282aa`) 5/5 PASS; suíte runtime 19/19 PASS (28/09). Projeto 55154 não publicado. Pendências aceitas conscientemente por Janeide: conta Auditoria F2-T02 removida/desativada antes de produção; `.skip.config.json` pendência de metadado do editor; `META_APP_SECRET` real é gate separado de produção; preço "consulte" vs ausente é dívida deliberada documentada. F2-T03 não inicia sem autorização explícita.
 - Somente uma task por vez; autorização e teste humano antes das transições.
 - `META_APP_SECRET` real é gate separado de produção.
 - Projeto Skip 55154 é o ambiente de teste não publicado; a conta técnica dedicada foi provisionada para prova independente, sem acesso a produção e sem carga de dados reais de cliente.
@@ -25,8 +25,8 @@ Catálogo versionado, busca por código/bairro/tipo, ficha vigente, card com env
 - **B2-01:** exportação manual Kenlo em `.xls` com 29 colunas; zero monetário significa não preenchido; mídia não vem no arquivo e vira pendência de cadastro manual.
 - **B2-02:** corte = data da exportação; frequência semanal; Matheus responsável pela exportação/carga; mais de seis meses sem atualização gera revisão, sem recusar o imóvel por isso.
 - **B2-04:** retenção de um ano; log append-only por lote; histórico preservado; Promotor(es)/Indicador(es) fora do catálogo; Captador(es) apenas como campo interno de rastreabilidade.
-- **Changelog canônico:** a cópia local `adapta-cliente/changelog.md` é a fonte canônica desta sincronização; hash Git blob local `c65eff9e4e29975b196794a4c687baa761b546e5`. A leitura de volta dos arquivos publicados será conferida por blob SHA, pois o conector pode introduzir drift de transcrição em arquivos longos.
-- Não há divergência documental declarada após o checkpoint publicado de 2026-09-30; verificar hashes novamente nesta atualização.
+- **Changelog canônico:** a cópia local `adapta-cliente/changelog.md` é a fonte canônica desta sincronização; hash Git blob local `48b177564a99c551641a5db67bc7101e1cdd935c` (pós-fechamento F2-T02). A leitura de volta dos arquivos publicados será conferida por blob SHA, pois o conector pode introduzir drift de transcrição em arquivos longos.
+- Sincronização desta conclusão será validada por blob SHA na leitura de volta; divergências, se surgirem, seguem regra "local vence" com decisão da cliente.
 
 ## Evidência F2-T01
 

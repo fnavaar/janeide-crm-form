@@ -1,6 +1,6 @@
 # AP-2026-09-30-1120 — UI duplicada e autorização no backend
 
-- Status: candidato
+- Status: capturado (validação humana do cartão único aprovada no fechamento da F2-T02 em 2026-09-30)
 - Escopo: projeto do cliente
 - Task/SPEC: F2-T02 / SPEC-2-001
 - Sinal: dois cartões de mutação renderizados sob a mesma condição de papel geraram controles visuais duplicados, embora ambos chamassem a mesma rota e o backend continuasse negando SDR com HTTP 403.
