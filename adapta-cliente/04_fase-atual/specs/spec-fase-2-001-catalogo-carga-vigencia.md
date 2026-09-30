@@ -23,7 +23,7 @@ Um operador autorizado submete uma fixture ou lote permitido e recebe um recibo 
 - **Fora de escopo:** API/scraping do Kenlo; migração integral; edição do Kenlo; cadastro de proprietário; agenda; classificação de lead.
 - **Entradas:** fixture sintética; depois, export autorizado e minimizado.
 - **Saídas:** `catalog_import_receipt`, versão de catálogo, dicionário versionado de normalização de bairro/tipo, relatório de recusas e lista de vencidos/pendentes.
-- **Atores/permissões:** responsável de cadastro importa/corrige; SDR lê; gestor audita; nenhum lead acessa a carga.
+- **Atores/permissões:** Admin é o único papel autorizado a importar, corrigir lotes, promover versões e executar rollback; a autorização é pelo papel, não pela pessoa (Matheus ocupa hoje). SDR e Corretor leem o catálogo, sem mutações. A conta Auditoria F2-T02 é somente técnica de prova no Skip 55154 não publicado e deve ser removida/desativada antes de qualquer uso em produção.
 - **Superfícies:** coleção/tabela de catálogo e versões, rota administrativa autenticada ou mecanismo de carga provado, painel de pendências, logs sanitizados.
 - **Risco/plano B:** se o mecanismo automático não for provado no ambiente, usar importação administrativa/manual idempotente com o mesmo contrato e recibo.
 - **Rollback:** desativar a versão nova e restaurar a anterior por referência; nunca apagar histórico para esconder erro.
@@ -32,8 +32,8 @@ Um operador autorizado submete uma fixture ou lote permitido e recebe um recibo 
 
 | Origem/destino | Fonte de verdade | Contrato | Permissão | Idempotência/erro |
 |---|---|---|---|---|
-| Export Kenlo → catálogo mínimo | arquivo aprovado, data de corte e `source_ref` | 10 campos mínimos + `import_id` + `catalog_version` | responsável de cadastro | mesma chave+conteúdo não duplica; divergência vira pendência |
-| Catálogo → busca/card | versão ativa aceita | somente registros ativos, vigentes e válidos | leitura SDR/gestor | item inválido não é opção ativa |
+| Export Kenlo → catálogo mínimo | arquivo autorizado ou fixture sintética e versão de origem | 10 campos mínimos + `import_id` + `catalog_version` | **Admin** importa/corrige/promove/rollback; SDR/Corretor leitura | mesmo hash+conteúdo não duplica; divergência vira pendência |
+| Catálogo → busca/card | versão ativa aceita | somente registros ativos, vigentes e válidos | **Admin, SDR e Corretor somente leitura** no consumo; sem acesso à carga para papéis não Admin | item inválido não é opção ativa |
 
 | Regra | Condição | Resultado | Exceção/fonte |
 |---|---|---|---|
@@ -103,14 +103,14 @@ Um operador autorizado submete uma fixture ou lote permitido e recebe um recibo 
 - **Demonstrar:** validar lote, revisar diferenças, promover e abrir pendências.
 - **Operar:** responsável de cadastro mantém versão/vigência; SDR consome versão ativa.
 - **Monitorar:** itens vencidos, recusas, carga parcial e divergência entre fonte/painel.
-- **Pendência:** mecanismo real e conta autorizadora dependem de B2-01/B2-03.
+- **Pré-condições F2-T02:** F2-T01 aceita; acesso técnico B2-03 no Skip 55154; decisões fechadas para fixture sintética, V1→V2 alterada→rollback V2→V1 e autoridade Admin. Exportação `.xls` real fora desta task e depende de autorização própria.
 
 ## Tasks vinculadas
 
 | ID | Task | Dono | SPEC | Critério | Recorte da prova | Evidência esperada | Pré-condições | Status |
 |---|---|---|---|---|---|---|---|---|
 | F2-T01 | Fechar contrato da carga, fonte, vigência e política do catálogo | Champion | SPEC-2-001 | CA-2-001 a CA-2-003 | validar fixture e registrar B2-01/B2-02/B2-04 ou decisões fechadas | contrato da carga, fixture, relatório de validação e aceite | autorização explícita; sem dado real | ELEGÍVEL |
-| F2-T02 | Implementar carga versionada, idempotência e rollback lógico | Ethos | SPEC-2-001 | CA-2-004 a CA-2-006 | GREEN/REGRESSÃO com repetição, falha parcial e permissão | recibos, diff de versão, 403/negação e rollback | F2-T01 aceita; B2-03 resolvido por acesso ou prova exportável | BLOQUEADA |
+| F2-T02 | Implementar carga versionada, idempotência e rollback lógico | Ethos | SPEC-2-001 | CA-2-004 a CA-2-006 | GREEN/REGRESSÃO: V1 fixture F2-T01 → V2 sintética alterada → rollback V2→V1; repetição, falha parcial e permissões | recibos, snapshots/diff de versões, 403/negação e rollback não destrutivo | F2-T01 aceita; B2-03 técnico no Skip 55154; fixture sintética; Admin é autoridade exclusiva | EM IMPLEMENTAÇÃO (2026-09-28; parar no teste humano) |
 
 ## Emendas
 

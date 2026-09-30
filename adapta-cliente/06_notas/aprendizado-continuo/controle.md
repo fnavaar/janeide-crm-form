@@ -27,3 +27,6 @@
 - 2026-09-22T10:32-03:00 · task F2-T01 · corrigido · teste humano e decisões B2-01/B2-02/B2-04 atribuídos a Matheus Silva; F2-T01 fechada, F2-T02 não iniciada.
 - 2026-09-22T10:44-03:00 · task F2-T01 · corrigido · confirmação do usuário: Matheus Silva é o autor das decisões B2-01/B2-02/B2-04 e do teste humano; registros de fechamento ajustados sem alterar o resultado técnico.
 - 2026-09-22T11:24-03:00 · task F2-T02 · capturado · conta técnica de auditoria provisionada via secret + migration idempotente no Skip 55154; senha não versionada; separar capacidade técnica de autoridade de negócio antes de promover/rollback.
+- 2026-09-28T12:07-03:00 · F2-T02 · decisão confirmada · autoridade comercial expressa como papel Admin, independente do ocupante; conta de auditoria limitada ao Skip 55154 e deve ser removida/desativada antes de produção; SDR/Corretor somente leitura. O conjunto de dados da prova permanece pendente.
+
+- 2026-09-28T16:19:55-03:00 · task F2-T02 · capturado · `AP-2026-09-28-1620-falsos-zero-pocketbase.md` — PocketBase rejeitou booleano `false`/contagens `0` em campos `required`; erro secundário do recibo mascarou a exceção original, exigir captura/log sanitizado da causa.

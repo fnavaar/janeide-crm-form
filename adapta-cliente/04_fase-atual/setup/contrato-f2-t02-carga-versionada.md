@@ -2,62 +2,58 @@
 
 **Task:** F2-T02 — Implementar carga versionada, idempotência e rollback lógico  
 **SPEC:** SPEC-2-001 — Catálogo mínimo, carga e vigência  
-**Estado:** B2-03 resolvido no recorte técnico; implementação da carga ainda não iniciada  
-**Ambiente de prova:** Skip Cloud — projeto `55154` — **Janeide Teste Fase 1**  
+**Estado:** implementação autorizada; em correção antes do teste humano devido a falha runtime na importação V1; decisões desta task fechadas  
+**Dados de prova:** exclusivamente fixtures sintéticas  
+**Ambiente:** Skip Cloud, projeto `55154` — **Janeide Teste Fase 1**, não publicado  
+**Rollback de prova:** promover V1 → promover V2 sintética alterada → rollback V2 → V1  
 **Preview:** `https://janeide-teste-fase-1-ba587--preview.goskip.app`  
-**Produção:** `https://janeide-teste-fase-1-ba587.goskip.app` — projeto não publicado; não usar produção  
 **Backend de teste:** `https://janeide-teste-fase-1-ba587.shrd00.internal.goskip.dev`  
 
-## 1. Conta técnica dedicada — B2-03
+## 1. Decisões fechadas
 
-A conta técnica de auditoria foi provisionada no projeto Skip 55154 para permitir prova independente da F2-T02 sem acesso a produção nem a dados reais de cliente.
+- A primeira prova usa somente a fixture sintética aprovada na F2-T01 e uma derivação sintética V2 com alterações identificáveis. Não será aberto nem importado um arquivo `.xls` real nesta task.
+- A sequência obrigatória no Skip 55154 é: **V1 (fixture F2-T01) → V2 (fixture sintética alterada) → rollback lógico para V1**.
+- As versões, recibos, itens normalizados e histórico de operações devem permanecer consultáveis depois da promoção e do rollback; rollback não apaga versões nem recibos.
+- Uma carga repetida com o mesmo conteúdo canônico é idempotente: não cria nova versão material nem duplica itens.
+- Lote com linhas recusadas/pendentes ou falha técnica não pode trocar silenciosamente a versão ativa. Admin deve receber totais e motivos; a falha mantém a versão ativa anterior. Só itens classificados e explicitamente aprovados para ativação entram no catálogo.
 
-- **Identidade:** `Auditoria F2-T02` (`f2-t02-audit@janeide.test`).
-- **Credencial:** armazenada exclusivamente no secret do Skip `AUDIT_F2_T02_CREDENTIALS`; o valor não é versionado, não aparece neste contrato e não deve ser enviado no chat.
-- **Papel técnico no ambiente de teste:** `admin` na collection de usuários do projeto 55154.
-- **Migration:** `pocketbase/migrations/0024_f2_t02_audit_account.js`.
-- **Migration aplicada:** `0024_f2_t02_audit_account`, versão `1790087075`.
-- **Versão Skip após aplicação:** `0.0.61` (`8d659d9`).
-- **QA observado:** setup, análise estática, build, integrações e testes — todos PASS.
+## 2. Autoridade e permissões de negócio
 
-## 2. Escopo técnico da permissão
+- **Único papel autorizado:** **Admin** pode importar, corrigir lote, promover versão e executar rollback lógico, com revisão e registro de cada ação.
+- A regra é pelo papel, não por pessoa. Matheus ocupa atualmente o papel Admin; a troca do ocupante não altera este contrato.
+- **SDR e Corretor:** leitura do catálogo e dos resultados necessários à operação; sem criar, alterar, importar, corrigir, promover ou executar rollback.
+- As permissões devem ser verificadas no backend/RLS, não apenas ocultando botões na interface.
 
-A conta pode, no ambiente de teste 55154:
+## 3. Conta técnica de auditoria — somente prova
 
-- autenticar como usuário técnico dedicado;
-- ler o catálogo de propriedades de teste;
-- criar, corrigir e remover registros da collection `properties`, porque suas regras de escrita exigem `@request.auth.role = 'admin'`;
-- ser usada como ator técnico nas futuras provas de importação, promoção controlada e rollback da F2-T02, quando essas superfícies forem implementadas.
+A conta `Auditoria F2-T02` (`f2-t02-audit@janeide.test`) existe exclusivamente no projeto de teste 55154 para comprovar o comportamento técnico. Seu papel `admin` nesse ambiente isolado simula a trilha autorizada de teste; **a conta não tem autoridade de negócio, não é aprovadora e não representa o Admin operacional**.
 
-A conta **não** recebe:
+- Credencial somente no secret Skip `AUDIT_F2_T02_CREDENTIALS`; nunca versionar ou publicar o valor.
+- Migration que a provisionou: `pocketbase/migrations/0024_f2_t02_audit_account.js` (aplicada; versão Skip `0.0.61`, hash `8d659d9`).
+- A conta deve permanecer confinada ao 55154 não publicado e a fixtures sintéticas.
+- **Gate obrigatório antes de qualquer uso em produção:** remover ou desativar esta conta e confirmar que não existe no ambiente produtivo; não copiar o secret de teste para produção.
 
-- acesso a produção — o projeto 55154 está `isPublished: false`;
-- dados reais de clientes — a prova deve usar somente fixtures/snapshots sintéticos ou minimizados autorizados;
-- acesso amplo à collection de usuários — a regra de `users` continua limitada ao próprio usuário;
-- autorização automática de negócio para promover, corrigir ou executar rollback em nome da operação.
+## 4. Fluxo e invariantes
 
-## 3. Limite entre capacidade técnica e autoridade de negócio
+1. Validar entrada fixture, campos, vigência, mídia permitida e classificações; calcular hash canônico no servidor.
+2. Persistir versão em estágio, linhas normalizadas/classificadas e recibo append-only; não mudar a versão ativa durante importação.
+3. Repetição do mesmo hash/request id retorna o resultado anterior sem criar versão material duplicada.
+4. Admin revisa o recibo e promove explicitamente uma versão completa. Candidato recusado ou pendente não vira item ativo.
+5. Promoção e alterações do catálogo vivo executam atomicamente; erro em qualquer item reverte a transação inteira e preserva a versão anterior ativa.
+6. Rollback V2 → V1 reativa o snapshot imutável de V1 e restaura os itens correspondentes; V2 passa a estado revertido, mas versões, recibos e histórico permanecem.
+7. Ações de SDR/Corretor para mutação retornam 403 e não alteram versões, catálogo ou recibos de operação.
 
-A migration 0024 fornece a capacidade técnica mínima para a prova independente. Ela não decide quem é o aprovador humano nem autoriza promoção de versão real.
+## 5. Escopo e limites
 
-**Decisão pendente seguinte:** definir qual papel/conta é a autoridade de negócio autorizada a promover uma versão, corrigir lote e executar rollback. Até essa decisão, a F2-T02 não deve promover catálogo nem executar rollback operacional.
+- **Inclui:** carga do formato de fixture sintética, validação/normalização mínima necessária, hash e idempotência, recibos, versões imutáveis, promoção controlada, falha atômica, auditoria de permissões e rollback lógico V2→V1.
+- **Não inclui:** leitura ou parser de `.xls` real, ingestão de dados de clientes, conexão ao Kenlo, publicação em produção ou F2-T03 (busca nova por código/bairro/tipo).
+- A fixture F2-T01 é prova de validação com 5 linhas (2 aceitas, 1 pendente, 2 recusadas); somente candidatos aceitos podem ser materializados como propriedades ativas. O restante fica registrado com classificação e motivo.
 
-## 4. Fora do recorte já executado
+## 6. Critérios binários para teste
 
-Ainda não foram implementados nem provados:
-
-- parser/carga versionada;
-- collections de versões/recibos, se necessárias;
-- promoção controlada;
-- idempotência de lote;
-- falha parcial/reprocessamento;
-- rollback lógico;
-- teste humano da F2-T02.
-
-A F2-T01 permanece a fonte contratual para formato, normalização, retenção, log e critérios de catálogo.
-
-## 5. Segurança e recuperação
-
-- Não colocar senha ou token em migration, contrato, changelog, fixture ou mensagem.
-- Se a conta técnica for comprometida, rotacionar o secret `AUDIT_F2_T02_CREDENTIALS` e executar uma migration de atualização de senha; não publicar o valor.
-- Não usar rollback de migration para desfazer a conta em banco de teste sem preservar o histórico da prova; qualquer reversão deve ser deliberada e registrada.
+- **Idempotência:** mesmo hash em nova tentativa não cria uma segunda versão material nem duplica propriedades.
+- **V1/V2:** V1 reproduz `cat-20260915-fac83f9cf10a`; V2 deriva da fixture sintética e tem hash/conteúdo distintos; cada recibo apresenta totais e ator.
+- **Promoção/falha parcial:** importação não altera catálogo ativo; promoção explícita é atômica; falha parcial ou recusada mantém versão anterior ativa, sem resíduo parcial.
+- **Permissões:** Admin de prova pode operar; SDR e Corretor conseguem ler e recebem 403 ao tentar mutação; nenhum estado é alterado pelas tentativas negadas.
+- **Rollback:** depois de V2 ativa, rollback aponta V1, os campos ativos voltam a corresponder exatamente ao snapshot de V1 e o histórico de V2/recibos continua preservado.
+- A F2-T02 para em `aguardando_teste_humano`; não iniciar F2-T03 até aprovação humana.
