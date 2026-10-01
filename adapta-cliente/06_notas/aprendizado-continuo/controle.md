@@ -34,3 +34,8 @@
 - 2026-09-30T11:20-03:00 · task F2-T02 · capturado · `AP-2026-09-30-1120-ui-duplicada-permissao-backend.md` — conferir duplicação/visibilidade da UI por papel separadamente do 403 server-side (validação humana do cartão único aprovada no fechamento).
 
 - 2026-09-30T15:15-03:00 · task F2-T03 · capturado · `AP-2026-09-30-1515-corrupcao-semantica-write-skip.md` — corrupção do write no conector Skip pode ser semântica (default `CENTRO` injetado no hook) e não só truncamento; ler de volta e confrontar pontos críticos (defaults, guards, dicts) antes de build/teste humano.
+
+- 2026-10-01T16:16:00-03:00 · task F2-T04 · sem sinal reutilizável · a causa técnica exata do smoke superuser em 0.0.88 ficou sem confirmação; conector Skip recusou leituras subsequentes.
+- 2026-10-01T18:30:00-03:00 · task F2-T04 · capturado · `AP-2026-10-01-1830-superuser-smoke-em-gate-global.md` — gate global de leitura por papel deve liberar o superuser da plataforma em REST e realtime antes de qualquer negação; pipeline oficial é a prova.
+
+- 2026-10-01T18:35:00-03:00 · task F2-T04 · capturado · `AP-2026-10-01-1835-placeholder-em-roteiro-humano.md` — roteiro humano deve copiar IDs reais da resposta anterior e guiar 401/403/404; placeholder gera 404 falso-positivo.
