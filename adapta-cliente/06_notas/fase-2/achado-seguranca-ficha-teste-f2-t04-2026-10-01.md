@@ -1,7 +1,7 @@
 # Achado de acesso à ficha e PII do lead — projeto de teste 55154
 
 **Data:** 2026-10-01  
-**Classificação atual:** achado de segurança confirmado no projeto de teste 55154; ocorrência em produção não determinada. Ficha protegida no preview 0.0.86; cobertura da PII do lead para o papel `outro` ainda pendente de decisão/validação.  
+**Classificação atual:** achado de segurança confirmado no projeto de teste 55154; ocorrência em produção não determinada. Gates de papel aplicados e validados no preview 0.0.91 (QA 5/5; teste humano aprovado por Janeide: `outro` = 403 em listagem e cartão, SDR/Corretor/Admin = 200, anônimo = 401).  
 **Relação com F2-T04:** correção do role gate da ficha foi autorizada e aplicada no preview dentro da retomada F2-T04; a decisão se a CA-2-012 abrange também os endpoints de lead continua em aberto.
 
 ## Evidência
@@ -25,3 +25,19 @@ O registro mostra que o preview **antes da correção em 0.0.86** exigia autenti
 3. Antes de classificar produção, identificar o projeto/app realmente publicado, inspecionar o hook efetivo, sua matriz de papéis e logs de acesso pertinentes.
 4. A correção de papel para a ficha foi incluída no preview de teste 0.0.86 durante F2-T04, com allowlist `admin`/`sdr`/`corretor`; QA automatizado passou em 5/5 etapas. O teste autenticado `role=outro`/403 e as provas de regressão continuam pendentes, sem publicar produção. O endpoint do cartão/coleção de leads não foi alterado; sua leitura para `outro` precisa de decisão de escopo da Janeide/consultor antes de autenticação ou classificação de CA-2-012.
 5. Não iniciar F2-T05.
+
+
+## Estado da correção 0032 / bloqueio do conector — 2026-10-01
+
+- Janeide confirmou CA-2-012: somente `admin`, `sdr` e `corretor` leem dados de lead; telefone F1-T10 não muda.
+- Skip 55154 v0.0.87 (`2ac9b2a`) QA 5/5 PASS, migration 0032 aplicada, allowlist RLS lida de volta. A pipeline 0.0.88 (`cadd8ea`) falhou em integrations: middleware global `leads_read_role_gate` recusou o superuser de smoke com 401; pipeline informou restauração do hook set anterior.
+- Nenhum teste autenticado de `outro`, SDR, Corretor ou Admin foi executado. O teste humano não está liberado.
+- Uma sonda temporária de matriz e o secret `F2_T04_ROLE_MATRIX_PROBE_KEY` foram criados. Em 1/10 o valor da chave temporária apareceu por engano em saída de ferramenta de leitura local. Não é uma credencial da conta; revogação/remoção é necessária. O conector MCP Skip retornou `Forbidden` em todas as tentativas seguintes de status, leitura, patch e delete, portanto não foi possível verificar ou remover a sonda nem a chave. Não chamar a rota temporária e não afirmar que ela foi removida.
+- Não houve publicação de produção. A organização Skip acessível lista somente projetos `isPublished=false`; isso não identifica outro app fora da organização. O schema de teste permite `outro` desde 2026-09-07 (migration 0010), enquanto a conta dedicada foi criada em 2026-10-01 (0031); início da lacuna em produção não determinado.
+
+## Resolução — 2026-10-01 (pós-teste humano)
+
+- Matriz por papel validada por teste humano aprovado por Janeide: `outro` = 403 na listagem e no cartão; SDR/Corretor/Admin = 200; anônimo = 401 (host interno). Regra F1-T10 do telefone preservada.
+- Sonda temporária removida (hook esvaziado) e secret `F2_T04_ROLE_MATRIX_PROBE_KEY` excluído por Janeide no painel Skip; remoção confirmada por leitura de volta. A chave temporária exposta em saída local ficou sem valor residual aproveitável (nunca foi credencial de conta).
+- Middleware corrigido com bypass de superuser em REST e realtime; QA 0.0.91 (`085a804`) 5/5 PASS.
+- F2-T04 concluída em 2026-10-01. Pendências herdados: `.skip.config.json` (metadado do editor), `META_APP_SECRET` real antes de produção, dívida "Consulte" vs ausente (PRIORIDADE), identificação do app real de produção para classificar exposição histórica.
