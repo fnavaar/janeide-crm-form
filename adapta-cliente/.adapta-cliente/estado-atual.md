@@ -8,6 +8,6 @@
 - teste_humano: pendente
 - verificacao_automatica: pendente — análise read-only; nenhuma alteração de produto.
 - aprendizado: pendente
-- ultima_acao: decisão 1 fechada por Janeide em 2026-10-02 10:45: criar coleção simples própria de pendências (lead_id, motivo, atribuído_a=SDR, status aberta/resolvida, criado_em), sem versionamento e sem reaproveitar next_step.
-- proxima_acao: aguardar decisão 2 sobre o gatilho de criação de pendência fora do catálogo.
-- atualizado_em: 2026-10-02T10:45:00-03:00
+- ultima_acao: decisões 1 e 2 fechadas por Janeide em 2026-10-02 10:52: coleção própria de pendências (lead_id, motivo, atribuído_a=SDR, status aberta/resolvida, criado_em), separada de next_step e sem versionamento; criação manual pelo SDR após confirmar que o pedido não está no catálogo ativo; busca vazia não cria pendência automática.
+- proxima_acao: aguardar decisão 3 sobre quem pode resolver/encerrar uma pendência.
+- atualizado_em: 2026-10-02T10:52:00-03:00
