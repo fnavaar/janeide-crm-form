@@ -9,6 +9,6 @@
 - verificacao_automatica: passou — Skip 55154 0.0.96 (`4cdd865`) QA setup/static/build/integrations/test 5/5 PASS; barreira anônima confirmada por HTTP real: GET /backend/v1/f2-t05/card 401 e POST /backend/v1/f2-t05/enviar 401 sem auth; rota F1 /ficha 401 (regressão intacta); logs do Skip confirmam 200 no card F2-T01-002 e 409 no F2-T01-001 durante o teste humano
 - aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-10-02-2140-vocabulario-availability-f1-vs-f2.md + AP-2026-10-02-2141-roteiro-usa-codigos-da-fonte-da-fase.md
 - ultima_acao: fechamento formal da F2-T05 — fase.md 5/8, STATUS, changelog (entrada [Janeide]), estado concluida, 2 APs capturados no controle
-- proxima_acao: sincronização GitHub (autorizada por Janeide para depois do teste); F2-T06 não inicia sem autorização explícita de Janeide
-- pendencias: sync GitHub pendente (fase.md/STATUS/changelog/estado/controle/APs locais ainda não publicados); dívida "Consulte" vs preço ausente PRIORIDADE (registrada na F2-T04, fora do escopo); `.skip.config.json` metadado preexistente
-- atualizado_em: 2026-10-01T21:55:00-03:00
+- proxima_acao: sincronização GitHub concluída; F2-T06 não inicia sem autorização explícita de Janeide
+- pendencias: nenhuma bloqueante — sync GitHub CONCLUÍDO (7/7 blobs MATCH por leitura de volta; local realinhado a origin/main `c8245ba`, árvore limpa); dívida "Consulte" vs preço ausente PRIORIDADE (registrada na F2-T04, fora do escopo); `.skip.config.json` metadado preexistente
+- atualizado_em: 2026-10-01T22:05:00-03:00
