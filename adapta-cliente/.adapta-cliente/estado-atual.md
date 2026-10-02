@@ -1,13 +1,14 @@
 # Estado atual — Adapta Cliente
 
-- task_id: F2-T04
+- task_id: F2-T05
 - champion: Matheus Silva
-- spec: 04_fase-atual/specs/spec-fase-2-002-busca-ficha-vigente.md
+- spec: 04_fase-atual/specs/spec-fase-2-003-card-envio-humano.md
 - etapa: concluida
-- autorizacao_implementacao: confirmada por Janeide em 2026-10-01 15:28 ("pode terminar: aplicar o middleware e a migration 0032, rodar a pipeline, e validar 403 para role=outro + leitura normal para os papéis permitidos")
-- teste_humano: aprovado por Janeide em 2026-10-01 20:10 ("Testei e funcionou. Confirmo: A1 ✓, A2 ✓, B1 ✓, B2 ✓, C1 ✓ (outro bloqueado com 403 nos dois endpoints), C2 ✓ (SDR, Corretor e Admin leem normalmente, 200 em listagem e cartão). A3 permanece como pendência registrada")
-- verificacao_automatica: passou — Skip 55154 0.0.91 (`085a804`) setup/static/build/integrations/test 5/5 PASS; migration 0032 aplicada; RLS `leads` allowlist admin/sdr/corretor confirmada por leitura de volta; middleware com bypass superuser em REST e realtime; anônimo 401 (host interno); sonda e probe key removidos e confirmados.
-- aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-10-01-1830-superuser-smoke-em-gate-global.md + AP-2026-10-01-1835-placeholder-em-roteiro-humano.md
-- ultima_acao: fechamento formal da F2-T04 — fase.md 4/8, STATUS, changelog, aprendizados capturados, estado concluida; sincronização GitHub executada em partes via MCP.
-- proxima_acao: aguardar autorização explícita de Janeide para iniciar F2-T05.
-- atualizado_em: 2026-10-01T20:55:00-03:00
+- autorizacao_implementacao: confirmada por Janeide em 2026-10-01 20:37 (decisões B2-06 opção (a), B2-04 aplicado ao card e permissão de envio (a) fechadas; "Autorizo a implementação da F2-T05 conforme o plano apresentado. Pare no teste humano. Não inicie a F2-T06.")
+- teste_humano: aprovado por Janeide em 2026-10-01 21:40 ("Testes concluídos. Todos passaram.") — roteiro A1–A4, B1–B2, C1–C2 ✓ (B3 opcional não executado); dois achados do teste corrigidos no ciclo (roteiro com código da Fase 1 → corrigido p/ códigos da versão F2; vocabulário availability `active` F2 vs `ativo` F1 → corrigido em 0.0.96)
+- verificacao_automatica: passou — Skip 55154 0.0.96 (`4cdd865`) QA setup/static/build/integrations/test 5/5 PASS; barreira anônima confirmada por HTTP real: GET /backend/v1/f2-t05/card 401 e POST /backend/v1/f2-t05/enviar 401 sem auth; rota F1 /ficha 401 (regressão intacta); logs do Skip confirmam 200 no card F2-T01-002 e 409 no F2-T01-001 durante o teste humano
+- aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-10-02-2140-vocabulario-availability-f1-vs-f2.md + AP-2026-10-02-2141-roteiro-usa-codigos-da-fonte-da-fase.md
+- ultima_acao: fechamento formal da F2-T05 — fase.md 5/8, STATUS, changelog (entrada [Janeide]), estado concluida, 2 APs capturados no controle
+- proxima_acao: sincronização GitHub (autorizada por Janeide para depois do teste); F2-T06 não inicia sem autorização explícita de Janeide
+- pendencias: sync GitHub pendente (fase.md/STATUS/changelog/estado/controle/APs locais ainda não publicados); dívida "Consulte" vs preço ausente PRIORIDADE (registrada na F2-T04, fora do escopo); `.skip.config.json` metadado preexistente
+- atualizado_em: 2026-10-01T21:55:00-03:00
