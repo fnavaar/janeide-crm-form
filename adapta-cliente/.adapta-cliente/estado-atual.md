@@ -9,6 +9,6 @@
 - verificacao_automatica: passou — baseline Skip 55154 0.0.96 (`4cdd865`) ativo e working tree limpo; rotas F2-T05 protegidas (401 anônimo em GET card e POST enviar); logs do Skip confirmaram cada passo do roteiro (201/200/409/404/403/200/403/403/403/401); scan de segredos limpo (logs sanitizados, docs sem credenciais, hooks só com $secrets.get); nenhuma mudança de código nesta task
 - aprendizado: capturado:06_notas/aprendizado-continuo/AP-2026-10-02-0845-host-interno-login-skip.md
 - ultima_acao: fechamento formal da F2-T06 — fase.md 6/8, STATUS, changelog (entrada [Janeide]), estado concluida, AP capturado no controle
-- proxima_acao: sincronização GitHub; F2-T07 não inicia sem autorização explícita de Janeide
-- pendencias: sync GitHub em andamento; dívida "Consulte" vs preço ausente PRIORIDADE (registrada na F2-T04, fora do escopo); `.skip.config.json` metadado preexistente
-- atualizado_em: 2026-10-02T08:50:00-03:00
+- proxima_acao: aguardar nova autorização explícita de Janeide para F2-T07
+- pendencias: sync GitHub concluído; dívida "Consulte" vs preço ausente PRIORIDADE (registrada na F2-T04, fora do escopo); `.skip.config.json` metadado preexistente
+- atualizado_em: 2026-10-02T09:29:00-03:00
