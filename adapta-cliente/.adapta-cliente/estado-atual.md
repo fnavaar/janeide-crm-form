@@ -4,10 +4,10 @@
 - champion: Matheus Silva
 - spec: 04_fase-atual/specs/spec-fase-2-004-atendimento-prioridade-handoff.md
 - etapa: aguardando_autorizacao
-- autorizacao_implementacao: ausente (análise autorizada por Janeide em 2026-10-02 10:23; implementação ainda aguarda fechamento das decisões da análise)
+- autorizacao_implementacao: ausente (análise da F2-T07 autorizada por Janeide em 2026-10-02; decisões 1–4 fechadas; implementação ainda não autorizada)
 - teste_humano: pendente
-- verificacao_automatica: pendente — análise read-only; nenhuma alteração de produto.
+- verificacao_automatica: pendente — baseline analisado sem alterações: repo em 6e32abc, árvore limpa; Skip 55154 no preview 0.0.96 (`4cdd865`), não publicado, com `.skip.config.json` preexistente pendente.
 - aprendizado: pendente
-- ultima_acao: decisões 1 a 3 fechadas por Janeide em 2026-10-02 até 11:17: coleção própria de pendências (lead_id, motivo, atribuído_a=SDR, status aberta/resolvida, criado_em), separada de next_step e sem versionamento; criação manual pelo SDR após confirmar que o pedido não está no catálogo ativo; busca vazia não cria pendência automática; qualquer SDR autenticado resolve, Admin audita e Corretor não altera (fila compartilhada, sem dono individual).
-- proxima_acao: aguardar decisão 4 sobre como registrar responsável/prazo do próximo passo geral, distinto da pendência fora do catálogo.
-- atualizado_em: 2026-10-02T11:17:00-03:00
+- ultima_acao: plano F2-T07 consolidado para CA-2-019..021. Decisões Janeide: pendência em coleção própria simples (lead_id, motivo, atribuído_a=SDR, status aberta/resolvida, criado_em), sem versionamento e separada de next_step; criação manual pelo SDR após confirmar ausência no catálogo ativo (busca vazia não prova intenção, sem vínculo busca–lead nesta task); qualquer SDR resolve, Admin audita, Corretor não altera; próximo passo mantém texto e ganha campo de data opcional, sem horário/SLA/lembrete, para consulta/ordenação.
+- proxima_acao: aguardar autorização explícita de Janeide para implementar a F2-T07.
+- atualizado_em: 2026-10-02T11:52:58-03:00
